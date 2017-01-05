@@ -13,7 +13,7 @@
 		.module('auth')
 		.controller('AuthCtrl', Auth);
 
-		Auth.$inject = [];
+		Auth.$inject = ['$scope', '$rootScope', '$location', 'AuthenticationService'];
 
 		/*
 		* recommend
@@ -21,10 +21,26 @@
 		* and bindable members up top.
 		*/
 
-		function Auth() {
+		function Auth($scope, $rootScope, $location, AuthenticationService) {
 			/*jshint validthis: true */
 			var vm = this;
+			// reset login status
+	        AuthenticationService.ClearCredentials();
 
-		}
-
+	  		      
+	  
+	        $scope.login = function () {
+		            $scope.dataLoading = true;
+		            AuthenticationService.SetCredentials($scope.username, $scope.password);
+		            AuthenticationService.Login($scope.username, $scope.password, function(response) {
+		                if(response.success) {
+		                    //AuthenticationService.SetCredentials($scope.username, $scope.password);
+		                    $location.path('/');
+		                } else {
+		                    $scope.error = response.message;
+		                    $scope.dataLoading = false;
+		                }
+		            });
+				}
+			};
 })();

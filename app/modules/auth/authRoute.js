@@ -17,7 +17,14 @@ angular.module('auth')
 				templateUrl: 'app/modules/auth/auth.html',
 				controller: 'AuthCtrl',
 				controllerAs: 'vm'
-			});
+			})
+			.state('home.login', {
+				url:'/login',
+				templateUrl: 'app/modules/auth/auth.html',
+				controller: 'AuthCtrl',
+				controllerAs: 'vm'
+			})
+			;
 
 		
 	}]);

@@ -26,6 +26,11 @@
 							name: 'Auth'
 					},
 			    
+					{
+						link: 'users',
+							name: 'Users'
+					},
+			    
 		  	];
 
 			return {

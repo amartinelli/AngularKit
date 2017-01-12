@@ -17,10 +17,10 @@
 		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 		// function Name ($http, someSevide) {...}
 
-		AuthenticationService.$inject = ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout'];
+		AuthenticationService.$inject = ['Base64', '$http', '$cookieStore', '$rootScope', '$timeout', '$state'];
 		Base64.$inject = [];
 
-		function AuthenticationService (Base64, $http, $cookieStore, $rootScope, $timeout) {
+		function AuthenticationService (Base64, $http, $cookieStore, $rootScope, $timeout, $state) {
 					var service = {};
 		 
 		        service.Login = function (username, password, callback) {
@@ -38,15 +38,32 @@
 		 
 		            /* Use this for real authentication
 		             ----------------------------------------------*/
-		             //var auth = Base64.encode(username+":"+password), 
 		             
-					 //headers = {"Authorization": "Basic " + auth};
-				    
-					//$http.post('http://0.0.0.0:9000/auth', {  'access_token': 'NAZEEHKmCHq8eJRw1lTjFqGA5yknMb1T' },{ headers: headers })    
 		            $http.post('http://0.0.0.0:9000/auth', { 'access_token': $rootScope.mastertoken })
-		                .success(function (response) {
-		                    callback(response);
-		                });
+		               .then(
+		                function(response){
+					        // success callback
+					        
+					        console.log(response)
+
+					        $rootScope.globals.currentUser.token = response.data.token
+					        $rootScope.globals.currentUser.user = response.data.user
+
+				                
+		                	//$cookieStore.put('token', response.data.token);
+		                	//$cookieStore.put('user', response.data.user);
+					        $cookieStore.put('globals', $rootScope.globals);
+					         
+				            $state.go('home.dashboard');
+					        callback(response);
+
+					       }, 
+					    function(response){
+					         // failure callback
+					         console.log('Autenticao falhou !!')
+					         callback(response);
+					       }
+		               );
 		 
 		        };
 		  

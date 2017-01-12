@@ -8,12 +8,19 @@
     "modules": [
       {
         "name": "auth"
+      },
+      {
+        "name": "users"
       }
     ],
     "menu": [
       {
         "link": "auth",
         "title": "Auth"
+      },
+      {
+        "link": "users",
+        "title": "Users"
       }
     ]
   }

@@ -35,6 +35,11 @@ module.exports = function (config) {
 			'app/modules/auth/authRoute.js',
 			'app/modules/auth/authService.js',
 			'app/modules/auth/auth-test.js',
+			'app/modules/users/usersModule.js',
+			'app/modules/users/usersCtrl.js',
+			'app/modules/users/usersRoute.js',
+			'app/modules/users/usersService.js',
+			'app/modules/users/users-test.js',
 		],
 
 		// Test results reporter to use

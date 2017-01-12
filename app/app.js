@@ -21,6 +21,7 @@
 		'ui.router',
 		'home',
 		'auth',
+		'users',
 	]);
 
 })();

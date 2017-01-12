@@ -27,35 +27,53 @@
 
 		
 		$urlRouterProvider
-			.otherwise('/login');
+			.otherwise('/dashboard');
 		
 	}
 
 	runBlock.$inject = ['$rootScope'];
 
-	
-
-	AuthorizationVerify.$inject = ['$rootScope', '$location', '$cookieStore', '$http'];
-
 	function runBlock($rootScope ) {
 		'use strict';
 
-		$rootScope.mastertoken = 'NAZEEHKmCHq8eJRw1lTjFqGA5yknMb1T';
 		console.log('AngularJS run() function...');
+
+		$rootScope.mastertoken = 'NAZEEHKmCHq8eJRw1lTjFqGA5yknMb1T';
 	}
 
-	function AuthorizationVerify ($rootScope, $location, $cookieStore, $http) {
+	AuthorizationVerify.$inject = ['$rootScope', '$location' ,'$state' , '$cookieStore', '$http', 'AuthenticationService'];
+
+	function AuthorizationVerify ($rootScope, $location ,$state , $cookieStore, $http, AuthenticationService ) {
 		console.log('Call AuthorizationVerify');
         // keep user logged in after page refresh
         $rootScope.globals = $cookieStore.get('globals') || {};
+        $rootScope.token = $cookieStore.get('token') || {};
+        $rootScope.user = $cookieStore.get('user') || {};
         if ($rootScope.globals.currentUser) {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
   
-        $rootScope.$on('$locationChangeStart', function (event, next, current) {
+        //$rootScope.$on('$stateChangeStart', function (event, next, current ) {
+    	$rootScope.$on('$stateChangeSuccess', function (event, next, current ) {
+        	console.log('Verify is Logged')
+        	console.log($rootScope.globals)
+        	console.log($rootScope.token)
+        	console.log($rootScope.user)
+        	console.log($location.path())
+
+        	
             // redirect to login page if not logged in
             if ($location.path() !== '/login' && !$rootScope.globals.currentUser) {
-                $location.path('/login');
+            //if ($location.path() !== '/login' && !isLogged) {
+            
+            	console.log('aqui')
+            	//event.preventDefault();
+            	
+            	//$location.path('/login');
+            	
+            	$state.go('home.login');
+				
+
             }
         });
     }

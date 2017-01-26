@@ -11,7 +11,9 @@
 
   	angular
 		.module('users')
-		.factory('UsersService', Users);
+		.factory('UsersService', Users)
+		.factory('Movie', Movie)
+		.service('popupService', popupService);
 		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 		// function Name ($http, someSevide) {...}
 
@@ -21,4 +23,19 @@
 
 		}
 
+		Movie.$inject = ['$resource', '$rootScope'];
+
+		function Movie ($resource, $rootScope) {
+		    return $resource($rootScope.UrlAPIUsers+':id',{id:'@_id', access_token: $rootScope.globals.currentUser.token},{
+		        update: {
+		            method: 'PUT'
+		        }
+		    });
+		}
+		
+		function popupService ($window) {
+		    this.showPopup=function(message){
+		        return $window.confirm(message);
+		    }
+		}
 })();

@@ -13,8 +13,9 @@
 	angular.module('contrib', [
 		'ngResource',
 		'ngAria',
-		 'ngMaterial',
+		'ngMaterial',		 
 		'ngMdIcons',
+		'ngMessages',
 		'ngCookies',
 		'ngAnimate',
 		'ngSanitize',

@@ -44,7 +44,7 @@
 		                function(response){
 					        // success callback
 					        
-					        console.log(response)
+					        //console.log(response)
 
 					        $rootScope.globals.currentUser.token = response.data.token
 					        $rootScope.globals.currentUser.user = response.data.user
@@ -60,7 +60,7 @@
 					       }, 
 					    function(response){
 					         // failure callback
-					         console.log('Autenticao falhou !!')
+					         console.log('Authenticao falhou !!')
 					         callback(response);
 					       }
 		               );

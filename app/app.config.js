@@ -38,7 +38,8 @@
 
 		console.log('AngularJS run() function...');
 
-		$rootScope.mastertoken = 'NAZEEHKmCHq8eJRw1lTjFqGA5yknMb1T';
+		$rootScope.mastertoken = 'u29ioGh27nOTRJuNnAX8peM01ilo3F2S';
+		$rootScope.UrlAPIUsers = 'http://0.0.0.0:9000/users/';
 	}
 
 	AuthorizationVerify.$inject = ['$rootScope', '$location' ,'$state' , '$cookieStore', '$http', 'AuthenticationService'];
@@ -56,10 +57,10 @@
         //$rootScope.$on('$stateChangeStart', function (event, next, current ) {
     	$rootScope.$on('$stateChangeSuccess', function (event, next, current ) {
         	console.log('Verify is Logged')
-        	console.log($rootScope.globals)
-        	console.log($rootScope.token)
-        	console.log($rootScope.user)
-        	console.log($location.path())
+        	// console.log($rootScope.globals)
+        	// console.log($rootScope.token)
+        	// console.log($rootScope.user)
+        	// console.log($location.path())
 
         	
             // redirect to login page if not logged in

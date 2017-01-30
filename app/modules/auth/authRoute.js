@@ -9,15 +9,20 @@
  */
 
 angular.module('auth')
-	.config(['$stateProvider', function ($stateProvider) {
+	.config(LoginState)
+	.run(LayoutLogin);
+
+	//LoginState.$inject['$stateProvider'];
+
+	function LoginState ($stateProvider) {
 		
 		$stateProvider
-			.state('home.auth', {
-				url:'/auth',
-				templateUrl: 'app/modules/auth/auth.html',
-				controller: 'AuthCtrl',
-				controllerAs: 'vm'
-			})
+			// .state('home.auth', {
+			// 	url:'/auth',
+			// 	templateUrl: 'app/modules/auth/auth.html',
+			// 	controller: 'AuthCtrl',
+			// 	controllerAs: 'vm'
+			// })
 			.state('home.login', {
 				url:'/login',
 				templateUrl: 'app/modules/auth/auth.html',
@@ -27,4 +32,12 @@ angular.module('auth')
 			;
 
 		
-	}]);
+	};
+
+
+	LayoutLogin.$inject = [ '$state' , '$rootScope'];
+
+	function LayoutLogin ($state , $rootScope) {
+			//console.log($state)
+			//$rootScope.telaLogin = 'teste';
+	}

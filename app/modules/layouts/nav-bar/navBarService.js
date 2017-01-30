@@ -21,14 +21,14 @@
 
 			var menu = [
 				
-					{
-						link: 'auth',
-							name: 'Auth'
-					},
+					// {
+					// 	link: 'login',
+					// 		name: 'Login'
+					// },
 			    
 					{
 						link: 'users',
-							name: 'Users'
+							name: 'Usuários'
 					},
 			    
 		  	];

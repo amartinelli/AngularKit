@@ -26,8 +26,12 @@
 			var vm = this;
 			// reset login status
 	        AuthenticationService.ClearCredentials();
+	       //$scope.telaLogin = $rootScope.telaLogin;
+	       //console.log('AuthCtrl')
+	        
+	        vm.telaLogin = $rootScope.telaLogin;
 
-	  		      
+	  		
 	  
 	        $scope.login = function () {
 		            $scope.dataLoading = true;
@@ -37,6 +41,7 @@
 		                    //AuthenticationService.SetCredentials($scope.username, $scope.password);
 		                    $location.path('/');
 		                } else {
+
 		                    $scope.error = response.message;
 		                    $scope.dataLoading = false;
 		                }

@@ -13,7 +13,7 @@
 		.module('contrib')
 		.controller('LayoutCtrl', Layout);
 
-	Layout.$inject = ['$mdSidenav', '$cookies', '$state', '$mdToast', '$mdDialog'];
+	Layout.$inject = ['$mdSidenav', '$cookies', '$state', '$mdToast', '$mdDialog', 'AuthenticationService' , '$rootScope' ];
 
 	/*
 	* recommend
@@ -21,7 +21,7 @@
 	* and bindable members up top.
 	*/
 
-	function Layout($mdSidenav, $cookies, $state, $mdToast, $mdDialog ) {
+	function Layout($mdSidenav, $cookies, $state, $mdToast, $mdDialog, AuthenticationService, $rootScope) {
 		/*jshint validthis: true */
 		var vm = this;
 
@@ -81,7 +81,11 @@
 
 		vm.logOut = function () {
 
-			alert('Implement your Function Here');
+			// reset login status
+	        AuthenticationService.ClearCredentials();
+	        $rootScope.telaLogin=false;
+			$state.go('home.login');
+			//alert('Implement your Function Here');
 			// $cookies.put('dev_appserver_login', ' ');
 			//$state.go('out', {}, {reload: true});
 

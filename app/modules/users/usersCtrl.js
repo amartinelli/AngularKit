@@ -31,7 +31,7 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			var response =Movie.query();
+			var response = Movie.query();
 
 			$scope.users = response;
 			

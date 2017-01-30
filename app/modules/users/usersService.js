@@ -26,7 +26,14 @@
 		Movie.$inject = ['$resource', '$rootScope'];
 
 		function Movie ($resource, $rootScope) {
-		    return $resource($rootScope.UrlAPIUsers+':id',{id:'@_id', access_token: $rootScope.globals.currentUser.token},{
+			if (typeof($rootScope.globals.currentUser) == "undefined")
+			{
+				var token = '';
+			}else{
+				var token = $rootScope.globals.currentUser.token;
+			}
+
+		    return $resource($rootScope.UrlAPIUsers+':id',{id:'@_id', access_token: token},{
 		        update: {
 		            method: 'PUT'
 		        }

@@ -39,7 +39,7 @@
 		            /* Use this for real authentication
 		             ----------------------------------------------*/
 		             
-		            $http.post('http://0.0.0.0:9000/auth', { 'access_token': $rootScope.mastertoken })
+		            $http.post($rootScope.UrlAPIAuth, { 'access_token': $rootScope.mastertoken })
 		               .then(
 		                function(response){
 					        // success callback
@@ -48,6 +48,7 @@
 
 					        $rootScope.globals.currentUser.token = response.data.token
 					        $rootScope.globals.currentUser.user = response.data.user
+					        $rootScope.telaLogin=true;
 
 				                
 		                	//$cookieStore.put('token', response.data.token);
@@ -60,7 +61,18 @@
 					       }, 
 					    function(response){
 					         // failure callback
-					         console.log('Authenticao falhou !!')
+					         // console.log('Authenticao falhou !!')
+					          console.log(response)
+					         
+					         if (response.status === -1)
+					         {
+					         	response.message = "Servidor fora do ar !!!"
+					         }else if (response.data.message){
+					         	response.message = response.data.message
+					         }else{
+					         	response.message = response.status+": "+response.statusText
+					         }
+
 					         callback(response);
 					       }
 		               );

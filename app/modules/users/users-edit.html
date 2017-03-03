@@ -1,4 +1,47 @@
 
-<form class="form-horizontal" role="form" ng-submit="updateMovie()">
-    <div ng-include="'partials/_form.html'"></div>
-</form>
+
+<div  layout="column" ng-cloak class="md-inline-form">
+
+  <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding  layout-fill>
+	<div>
+	  <md-toolbar class="md-table-toolbar md-default">
+	      <div class="md-toolbar-tools">
+	        <span>Alteração de usuário</span>
+	      </div>
+	    </md-toolbar>
+	</div>
+
+    <div>
+      <md-input-container>
+        <label>Nome</label>
+        <input ng-model="users.name" placeholder="Nome do Usuário">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
+        <label>E-Mail</label>
+        <input ng-model="users.email" placeholder="E-Mail (login) do Usuário">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
+        <label>Senha</label>
+        <input ng-model="users.password" type="password" placeholder="Senha do Usuário">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
+          <md-button class="md-raised md-primary" ng-click="updateUser()">Salvar</md-button>        
+      </md-input-container>
+    </div>
+
+
+
+  </md-content>
+
+</div>
+
+

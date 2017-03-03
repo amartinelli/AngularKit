@@ -53,17 +53,19 @@
 
 			$scope.users=Movie.get({id:$stateParams.id});
 
+
+
 		}
 
 		function MovieCreateController ($scope,$state,$stateParams,Movie) {
 			/*jshint validthis: true */
 			var vm = this;
 
-			$scope.movie=new Movie();
+			$scope.users=new Movie();
 
 		    $scope.addMovie=function(){
-		        $scope.movie.$save(function(){
-		            $state.go('movies');
+		        $scope.users.$save(function(){
+		            $state.go('users');
 		        });
 		    }
 
@@ -73,17 +75,20 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			$scope.updateMovie=function(){
-		        $scope.movie.$update(function(){
-		            $state.go('movies');
-		        });
+			$scope.updateUser=function(){
+		        var promise = $scope.users.$update({id:$stateParams.id});
+
+		        promise.then(function (out) {
+				    $state.go('home.users');
+				});
+		        
 		    };
 
-		    $scope.loadMovie=function(){
-		        $scope.movie=Movie.get({id:$stateParams.id});
+		    $scope.loadUser=function(){
+		        $scope.users=Movie.get({id:$stateParams.id});
 		    };
 
-		    $scope.loadMovie();			
+		    $scope.loadUser();			
 
 		}
 

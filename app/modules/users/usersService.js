@@ -33,6 +33,8 @@
 				var token = $rootScope.globals.currentUser.token;
 			}
 
+			
+
 		    return $resource($rootScope.UrlAPIUsers+':id',{id:'@_id', access_token: token},{
 		        update: {
 		            method: 'PUT'

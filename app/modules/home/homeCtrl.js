@@ -25,7 +25,9 @@
 		/*jshint validthis: true */
 		var vm = this;
 		// console.log($rootScope.globals.currentUser.user)
-		vm.title = 'Olá '+$rootScope.globals.currentUser.user.name ;
+		
+		if (typeof($rootScope.globals.currentUser) !== "undefined")
+			vm.title = 'Olá '+$rootScope.globals.currentUser.user.name ;
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
 

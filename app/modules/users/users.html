@@ -15,18 +15,20 @@
   <md-table-container  md-progress="promise">
     <table >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
-            <tr md-row>
+            <tr md-row class="even">
                 <td md-column md-order-by="nameToLower">Nome</td>
-                <td md-column>Email</td>
+                <td md-column >Email</td>
+                <td  md-column ></td>
             </tr>
         </thead>
 
         <tbody md-body>
-            <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in users">
+            <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in users"  class="even">
                 <td md-cell>{{user.name}}</td>
+                <td md-cell>{{user.email}}</td>
                 <td md-cell>
-                    <md-button class="md-raised md-primary" ui-sref="viewMovie({id:user.id})">View</md-button>
-                    <md-button class="md-raised md-primary"  ng-click="deleteMovie(user)">Delete</md-button>
+                    <md-button class="md-raised md-primary" ui-sref="home.viewUser({id:user.id})">View</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="home.deleteUsers(user)">Delete</md-button>
                 </td>
             </tr>
         </tbody>

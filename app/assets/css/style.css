@@ -9,3 +9,17 @@
 .alertlogin {
 	color: red;
 }
+
+.odd {
+        background-color: #FFF;
+}
+.even {
+        background-color: #ccc;
+}
+
+
+md-input-container {
+    
+    margin: 0 0;
+    
+}

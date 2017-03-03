@@ -38,6 +38,11 @@ angular.module('users')
 		        templateUrl:'app/modules/users/users-edit.html',
 		        controller:'MovieEditController',
 		        controllerAs: 'vm'
+	        }).state('home.deleteUser',{
+		        url:'/users/:id/delete',
+		        templateUrl:'app/modules/users/users-delete.html',
+		        controller:'MovieEditController',
+		        controllerAs: 'vm'
 		    });
 
 		

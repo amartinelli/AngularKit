@@ -23,3 +23,23 @@ md-input-container {
     margin: 0 0;
     
 }
+
+.error {
+	color: red;
+	margin-bottom: 20px;
+}
+
+md-sidenav {
+ 
+    width: 200px;
+    max-width: 320px;
+    
+}
+
+.margen {
+	margin-left: 10px;
+}
+
+.background {
+	background-color: white;
+}

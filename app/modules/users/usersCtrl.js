@@ -35,15 +35,17 @@
 
 			$scope.users = response;
 			
+			$scope.deleteUser = function(user) { // Delete a movie. Issues a DELETE to /api/movies/:id
+		    if (popupService.showPopup('Tem certeza que deseja deletar o usuário '+user.name+' ?')) {
+		        var promise = user.$delete({id:user.id});
 
-		    $scope.deleteMovie=function(user){
-	        if(popupService.showPopup('Really delete this?')){
-	            user
-	            user.$delete(function(){
-	                $window.location.href='';
-	            });
-		        }
-		    }
+		        promise.then(function (out) {
+		        	$scope.users = Movie.query();
+				    $state.go('home.users');
+				});
+		     }
+		    };
+		    
 
 		}
 
@@ -63,10 +65,16 @@
 
 			$scope.users=new Movie();
 
-		    $scope.addMovie=function(){
-		        $scope.users.$save(function(){
-		            $state.go('users');
-		        });
+		    $scope.addUser=function(){
+
+		        var promise = $scope.users.$save();
+
+		        promise.then(function (out) {
+				    $state.go('home.users');				    
+				}, function(motivo) {
+					$scope.addmessage = motivo.data.message
+				  // console.log(motivo)
+				});
 		    }
 
 		}

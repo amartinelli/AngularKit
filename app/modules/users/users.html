@@ -28,7 +28,7 @@
                 <td md-cell>{{user.email}}</td>
                 <td md-cell>
                     <md-button class="md-raised md-primary" ui-sref="home.viewUser({id:user.id})">View</md-button>
-                    <md-button class="md-raised md-primary"  ng-click="home.deleteUsers(user)">Delete</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="deleteUser(user)">Delete</md-button>
                 </td>
             </tr>
         </tbody>

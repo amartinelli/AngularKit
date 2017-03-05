@@ -23,16 +23,9 @@
         <fieldset class="demo-fieldset" >
           <!-- <legend class="demo-legend"></legend> -->
           <div layout="row" layout-wrap flex>
-          <div flex-xs flex="50">
-            <md-checkbox aria-label="Select All"
-                         ng-checked="isChecked()"
-                         md-indeterminate="isIndeterminate()"
-                         ng-click="toggleAll()">
-              <span ng-if="isChecked()">De-</span>Seleciona todos
-            </md-checkbox>
-          </div>
+          
             <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
-              <md-checkbox value="item.value" ng-checked="exists(item.value, selected)" ng-click="toggle(item.value, selected)">
+              <md-checkbox  ng-disabled="true" ng-checked="exists(item.value, selected)" >
                {{ item.name }}
               </md-checkbox>
             </div>

@@ -148,16 +148,87 @@
 			var vm = this;
 
 			$scope.updateUser=function(){
+				$scope.users.role = $scope.selected;
 		        var promise = $scope.users.$update({id:$stateParams.id});
 
-		        promise.then(function (out) {
-				    $state.go('home.users');
+		        
+				promise.then(function (out) {
+				    $state.go('home.users');				    
+				}, function(motivo) {
+					$scope.editmessage = motivo.data.message
+				  // console.log(motivo)
 				});
 		        
 		    };
 
 		    $scope.loadUser=function(){
+				$scope.selected = [];
+
 		        $scope.users=Movie.get({id:$stateParams.id});
+
+		        $scope.users.$promise.then(function(response){
+
+					// response.role = response.role.replace("admin", "Administrador");
+					// response.role = response.role.replace("user", "Usuario");
+					$scope.selected = response.role.split(',');
+					
+
+				}
+
+			)
+
+				
+
+			  $scope.items = [
+				  {
+				  	name:'Administrador',
+				  	value: 'admin'
+				  },
+				  {
+				  	name: 'Usuario',
+				  	value: 'user'
+				  }
+			  ];
+			  //$scope.selected = [];
+			  $scope.toggle = function (item, list) {
+			    var idx = list.indexOf(item);
+			    if (idx > -1) {
+			      list.splice(idx, 1);
+			    }
+			    else {
+			      list.push(item);
+			    }
+			  };
+
+			  $scope.exists = function (item, list) {
+			  	console.log(item)
+			  	console.log(list)
+			    return list.indexOf(item) > -1;
+			  };
+
+			  $scope.isIndeterminate = function() {
+			    return ($scope.selected.length !== 0 &&
+			        $scope.selected.length !== $scope.items.length);
+			  };
+
+			  $scope.isChecked = function() {
+			    return $scope.selected.length === $scope.items.length;
+			  };
+
+			  $scope.toggleAll = function() {
+			    if ($scope.selected.length === $scope.items.length) {
+			      $scope.selected = [];
+			    } else if ($scope.selected.length === 0 || $scope.selected.length > 0) {
+			    	$scope.items.forEach(function(entry) {
+			    		$scope.selected.push(entry.value)
+					     console.log($scope.selected);
+
+					});
+
+			      $scope.selected = $scope.items.slice(0);
+			    }
+			  };
+
 		    };
 
 		    $scope.loadUser();			

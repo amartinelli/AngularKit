@@ -11,6 +11,13 @@
 	    </md-toolbar>
 	</div>
 
+  <div class="error" ng-if="editmessage">
+   <md-whiteframe class="md-whiteframe-10dp" layout>
+        <span>{{editmessage}}</span>
+    </md-whiteframe>
+    
+  </div>
+
     <div>
       <md-input-container>
         <label>Nome</label>
@@ -30,6 +37,32 @@
         <label>Senha</label>
         <input ng-model="users.password" type="password" placeholder="Senha do Usuário">
       </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
+      Permissões:
+        
+        <fieldset class="demo-fieldset" >
+          <!-- <legend class="demo-legend"></legend> -->
+          <div layout="row" layout-wrap flex>
+          <div flex-xs flex="50">
+            <md-checkbox aria-label="Select All"
+                         ng-checked="isChecked()"
+                         md-indeterminate="isIndeterminate()"
+                         ng-click="toggleAll()">
+              <span ng-if="isChecked()">De-</span>Seleciona todos
+            </md-checkbox>
+          </div>
+            <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
+              <md-checkbox value="item.value" ng-checked="exists(item.value, selected)" ng-click="toggle(item.value, selected)">
+               {{ item.name }}
+              </md-checkbox>
+            </div>
+          </div>
+        </fieldset>
+
+    </md-input-container>
     </div>
 
     <div>

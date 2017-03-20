@@ -131,18 +131,7 @@
 
 			$scope.users=new Movie();
 
-<<<<<<< HEAD
-		    $scope.addMovie=function(){
 
-		    	var promise = $scope.users.$save($stateParams);
-
-		    	promise.then(function (out) {
-				    $state.go('home.users');
-				});
-		        // $scope.users.$save(function(){
-		        //     $state.go('home.users');
-		        // });
-=======
 		    $scope.addUser=function(){
 
 		        var promise = $scope.users.$save();
@@ -153,7 +142,6 @@
 					$scope.addmessage = motivo.data.message
 				  // console.log(motivo)
 				});
->>>>>>> b794cf97bec2199f20a1e49811811e61d89d65ea
 		    }
 
 		}

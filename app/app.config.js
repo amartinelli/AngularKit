@@ -40,6 +40,7 @@
 
 		$rootScope.mastertoken = '9S9JgTyAG0VdGcmjHKxSUuKnyTgQrt1a';
 		$rootScope.UrlAPIUsers = 'http://0.0.0.0:9000/users/';
+		$rootScope.UrlAPIContribs = 'http://0.0.0.0:9000/contribs/';
 		$rootScope.UrlAPIAuth = 'http://0.0.0.0:9000/auth';
 		
 	}

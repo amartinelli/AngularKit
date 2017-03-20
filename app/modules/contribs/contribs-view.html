@@ -1,0 +1,84 @@
+<div  layout="column" ng-cloak class="md-inline-form">
+
+  <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding  layout-fill>
+
+
+<table class="table movietable">
+    <tr>
+        <td><h3>Detalhes do contribuinte {{contribs.nome}}</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ID</td>
+        <td>{{contribs.id}}</td>
+    </tr>
+    <tr>
+        <td>E-Mail</td>
+        <td>{{contribs.email}}</td>
+    </tr>
+    <tr>
+        <td>Data de Nascimento</td>
+        <td>{{contribs.dtnasc}}</td>
+    </tr>
+    <tr>
+        <td>Data de Batismo</td>
+        <td>{{contribs.dtbatismo}}</td>
+    </tr>
+    <tr>
+        <td>Data de Crisma</td>
+        <td>{{contribs.dtcrisma}}</td>
+    </tr>
+    <tr>
+        <td>Data de Aniverssário de Casamento</td>
+        <td>{{contribs.dtanivercasamento}}</td>
+    </tr>
+    <tr>
+        <td>Nome do conjuge</td>
+        <td>{{contribs.nomeconjuge}}</td>
+    </tr>
+    <tr>
+        <td>Data de Aniverssário do Conjuge</td>
+        <td>{{contribs.dtaniverconjuge}}</td>
+    </tr>
+    <tr>
+        <td>Dependentes</td>
+        <td>{{contribs.dependentes}}</td>
+    </tr>
+    <tr>
+        <td>Endereço</td>
+        <td>{{contribs.endereco}}</td>
+    </tr>
+    <tr>
+        <td>Bairro</td>
+        <td>{{contribs.bairro}}</td>
+    </tr>
+    <tr>
+        <td>Estado</td>
+        <td>{{contribs.estado}}</td>
+    </tr>
+    <tr>
+        <td>Cidade</td>
+        <td>{{contribs.cidade}}</td>
+    </tr>
+    <tr>
+        <td>CEP</td>
+        <td>{{contribs.cep}}</td>
+    </tr>
+    <tr>
+        <td>Telefone</td>
+        <td>{{contribs.telefone}}</td>
+    </tr>
+    <tr>
+        <td>Celular</td>
+        <td>{{contribs.celular}}</td>
+    </tr>
+
+</table>
+<div>
+    <md-button class="md-raised md-primary" ui-sref="home.editContrib({id:contribs.id})">Edit</md-button>
+    
+</div>
+
+</md-content>
+
+</div>

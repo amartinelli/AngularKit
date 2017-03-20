@@ -13,9 +13,8 @@
 	angular.module('contrib', [
 		'ngResource',
 		'ngAria',
-		'ngMaterial',		 
+		 'ngMaterial',
 		'ngMdIcons',
-		'ngMessages',
 		'ngCookies',
 		'ngAnimate',
 		'ngSanitize',
@@ -23,6 +22,8 @@
 		'home',
 		'auth',
 		'users',
+		'contribs',
+		'arrecadacao',
 	]);
 
 })();

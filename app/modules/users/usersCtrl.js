@@ -37,10 +37,11 @@
 			
 
 		    $scope.deleteMovie=function(user){
-	        if(popupService.showPopup('Really delete this?')){
-	            user
+	        if(popupService.showPopup('Deseja realmente deletar ?')){
+	            // user
 	            user.$delete(function(){
-	                $window.location.href='';
+	            	 $state.go('home.users');
+	                // $window.location.href='';
 	            });
 		        }
 		    }
@@ -64,9 +65,15 @@
 			$scope.users=new Movie();
 
 		    $scope.addMovie=function(){
-		        $scope.users.$save(function(){
-		            $state.go('users');
-		        });
+
+		    	var promise = $scope.users.$save($stateParams);
+
+		    	promise.then(function (out) {
+				    $state.go('home.users');
+				});
+		        // $scope.users.$save(function(){
+		        //     $state.go('home.users');
+		        // });
 		    }
 
 		}

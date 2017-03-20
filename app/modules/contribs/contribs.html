@@ -1,0 +1,45 @@
+<section> 
+
+<md-content layout="column" layout-fill>
+
+<div>
+    <md-button ui-sref="home.newContrib" class="md-raised md-primary">Novo Contribuinte</md-button>
+</div>
+
+<div>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Contribuintes</span>
+      </div>
+    </md-toolbar>
+  <md-table-container  md-progress="promise">
+    <table >
+        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+            <tr md-row class="even">
+                <td md-column md-order-by="nameToLower">Nome</td>
+                <td md-column >Email</td>
+                <td md-column >Telefone</td>
+                <td  md-column ></td>
+            </tr>
+        </thead>
+
+        <tbody md-body>
+            <tr md-row md-select="contrib" md-select-id="name" md-auto-select ng-repeat="contrib in contribs"  class="even">
+                <td md-cell>{{contrib.nome}}</td>
+                <td md-cell>{{contrib.email}}</td>
+                <td md-cell>{{contrib.telefone}}</td>
+                <td md-cell>
+                    <md-button class="md-raised md-primary" ui-sref="home.viewContrib({id:contrib.id})">View</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="home.deleteContrib(contrib)">Delete</md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </md-table-container>
+  <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{contribs.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+</div>
+
+</md-content>
+
+</section>
+

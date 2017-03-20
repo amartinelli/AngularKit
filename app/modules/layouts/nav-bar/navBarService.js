@@ -30,6 +30,15 @@
 						link: 'users',
 							name: 'Usuários'
 					},
+					{
+						link: 'contribs',
+							name: 'Contribuintes'
+					},
+					{
+						link: 'arrecadacao',
+							name: 'Arrecadação'
+					},
+			    
 			    
 		  	];
 

@@ -35,7 +35,7 @@
     </div>
 </md-sidenav>
 
-<div layout="column" class="relative" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak >
+<div layout="column" class="relative  background" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak >
 <!--ng-show="!showSearch"-->
     <md-toolbar ng-show='telaLogin'>
         <div class="md-toolbar-tools">
@@ -89,7 +89,7 @@
             </md-input-container>
         </div>
     </md-toolbar>
-    <md-content layout="column" flex md-scroll-y style="background-color:#DCDCDC">
+    <md-content layout="column" class="margen" flex md-scroll-y >
         <div ui-view></div>
     </md-content>
 </div>

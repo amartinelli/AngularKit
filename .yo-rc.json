@@ -11,6 +11,12 @@
       },
       {
         "name": "users"
+      },
+      {
+        "name": "contribs"
+      },
+      {
+        "name": "arrecadacao"
       }
     ],
     "menu": [
@@ -21,6 +27,14 @@
       {
         "link": "users",
         "title": "Users"
+      },
+      {
+        "link": "contribs",
+        "title": "Contribs"
+      },
+      {
+        "link": "arrecadacao",
+        "title": "Arrecadacao"
       }
     ]
   }

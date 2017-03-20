@@ -23,3 +23,34 @@ md-input-container {
     margin: 0 0;
     
 }
+
+.error {
+	color: red;
+	margin-bottom: 20px;
+}
+
+md-sidenav {
+ 
+    width: 200px;
+    max-width: 320px;
+    
+}
+
+.margen {
+	margin-left: 10px;
+}
+
+.background {
+	background-color: white;
+}
+
+.checkboxdemoSelectAll .demo-legend {
+  color: #3F51B5; }
+
+.checkboxdemoSelectAll .demo-fieldset {
+  border-style: solid;
+  border-width: 1px;
+  height: 100%; }
+
+.checkboxdemoSelectAll .demo-select-all-checkboxes {
+  padding-left: 30px; }

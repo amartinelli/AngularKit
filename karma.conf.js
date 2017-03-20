@@ -40,6 +40,16 @@ module.exports = function (config) {
 			'app/modules/users/usersRoute.js',
 			'app/modules/users/usersService.js',
 			'app/modules/users/users-test.js',
+			'app/modules/contribs/contribsModule.js',
+			'app/modules/contribs/contribsCtrl.js',
+			'app/modules/contribs/contribsRoute.js',
+			'app/modules/contribs/contribsService.js',
+			'app/modules/contribs/contribs-test.js',
+			'app/modules/arrecadacao/arrecadacaoModule.js',
+			'app/modules/arrecadacao/arrecadacaoCtrl.js',
+			'app/modules/arrecadacao/arrecadacaoRoute.js',
+			'app/modules/arrecadacao/arrecadacaoService.js',
+			'app/modules/arrecadacao/arrecadacao-test.js',
 		],
 
 		// Test results reporter to use

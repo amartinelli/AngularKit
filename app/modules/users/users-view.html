@@ -16,12 +16,25 @@
         <td>E-Mail</td>
         <td>{{users.email}}</td>
     </tr>
-    <!--
+    
     <tr>
-        <td>Foto</td>
-        <td>{{users.picture}}</td>
+        <td>Permissões</td>
+        <td>
+        <fieldset class="demo-fieldset" >
+          <!-- <legend class="demo-legend"></legend> -->
+          <div layout="row" layout-wrap flex>
+          
+            <div class="demo-select-all-checkboxes" flex="100" ng-repeat="item in items">
+              <md-checkbox  ng-disabled="true" ng-checked="exists(item.value, selected)" >
+               {{ item.name }}
+              </md-checkbox>
+            </div>
+          </div>
+        </fieldset>
+
+        </td>
     </tr>
-    -->
+    
     
 </table>
 <div>

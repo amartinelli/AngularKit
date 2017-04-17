@@ -27,7 +27,7 @@
             <tr md-row md-select="contrib" md-select-id="name" md-auto-select ng-repeat="contrib in contribs"  class="even">
                 <td md-cell>{{contrib.nome}}</td>
                 <td md-cell>{{contrib.email}}</td>
-                <td md-cell>{{contrib.telefone}}</td>
+                <td md-cell>{{contrib.telefone | brPhoneNumber }}</td>
                 <td md-cell>
                     <md-button class="md-raised md-primary" ui-sref="home.viewContrib({id:contrib.id})">View</md-button>
                     <md-button class="md-raised md-primary"  ng-click="home.deleteContrib(contrib)">Delete</md-button>

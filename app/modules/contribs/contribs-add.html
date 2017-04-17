@@ -1,4 +1,4 @@
-<div  layout="column" ng-cloak class="md-inline-form">
+<div  layout="column"  class="md-inline-form" flex>
 
   <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding  layout-fill>
     <div>
@@ -18,7 +18,7 @@
     <div>
       <md-input-container>
         <label>Data de Nascimento</label>
-        <input ng-model="contribs.dtnasc" placeholder="Data de Nascimento do Contribuinte">
+        <input ng-model="contribs.dtnasc" placeholder="Data de Nascimento do Contribuinte" ui-mask="99/99/9999" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
       </md-input-container>
     </div>
 

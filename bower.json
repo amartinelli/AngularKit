@@ -22,7 +22,12 @@
     "angular-messages": "^1.6.1",
     "angular-material": ">=1.0.1",
     "angular-ui-router": "~0.2.10",
-    "angular-data-grid": "*"
+    "angular-data-grid": "*",
+    "angular-input-masks": "^2.5.0",
+    "angular-i18n": "^1.6.4",
+    "angular-dynamic-locale": "^0.1.32",
+    "angular-br-filters": "^0.7.0",
+    "br-cidades-estados": "^1.1.0"
   },
   "resolutions": {
     "angular": ">=1.3.*"

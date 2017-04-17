@@ -18,19 +18,19 @@
     </tr>
     <tr>
         <td>Data de Nascimento</td>
-        <td>{{contribs.dtnasc}}</td>
+        <td>{{contribs.dtnasc |  date: 'dd/MM/yyyy' }}</td>
     </tr>
     <tr>
         <td>Data de Batismo</td>
-        <td>{{contribs.dtbatismo}}</td>
+        <td>{{contribs.dtbatismo |  date : 'dd/MM/yyyy' }}</td>
     </tr>
     <tr>
         <td>Data de Crisma</td>
-        <td>{{contribs.dtcrisma}}</td>
+        <td>{{contribs.dtcrisma |  date : 'dd/MM/yyyy' }}</td>
     </tr>
     <tr>
         <td>Data de Aniverssário de Casamento</td>
-        <td>{{contribs.dtanivercasamento}}</td>
+        <td>{{contribs.dtanivercasamento |  date :'dd/MM/yyyy' }}</td>
     </tr>
     <tr>
         <td>Nome do conjuge</td>
@@ -38,7 +38,7 @@
     </tr>
     <tr>
         <td>Data de Aniverssário do Conjuge</td>
-        <td>{{contribs.dtaniverconjuge}}</td>
+        <td>{{contribs.dtaniverconjuge |  date : 'dd/MM/yyyy' }}</td>
     </tr>
     <tr>
         <td>Dependentes</td>
@@ -62,15 +62,15 @@
     </tr>
     <tr>
         <td>CEP</td>
-        <td>{{contribs.cep}}</td>
+        <td>{{contribs.cep | brCep }}</td>
     </tr>
     <tr>
         <td>Telefone</td>
-        <td>{{contribs.telefone}}</td>
+        <td>{{contribs.telefone | brPhoneNumber }}</td>
     </tr>
     <tr>
         <td>Celular</td>
-        <td>{{contribs.celular}}</td>
+        <td>{{contribs.celular | brPhoneNumber }}</td>
     </tr>
 
 </table>

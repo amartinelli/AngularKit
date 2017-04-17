@@ -13,6 +13,9 @@
 	angular
 		.module('contrib')
 		.config(configure)
+		.config(function(tmhDynamicLocaleProvider) {
+		    tmhDynamicLocaleProvider.defaultLocale('pt-br');
+		  })
 		.run(runBlock)
 		.run(AuthorizationVerify);
 
@@ -41,6 +44,7 @@
 		$rootScope.mastertoken = '9S9JgTyAG0VdGcmjHKxSUuKnyTgQrt1a';
 		$rootScope.UrlAPIUsers = 'http://0.0.0.0:9000/users/';
 		$rootScope.UrlAPIContribs = 'http://0.0.0.0:9000/contribs/';
+		$rootScope.UrlAPIPayments = 'http://0.0.0.0:9000/contribs/';
 		$rootScope.UrlAPIAuth = 'http://0.0.0.0:9000/auth';
 		
 	}

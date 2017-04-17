@@ -1,7 +1,49 @@
-<div class="md-padding" flex layout-sm="column">
-    <md-card>
-        <md-card-content>
-            <h2 class="md-title">Content from: arrecadacao page</h2>
-        </md-card-content>
-    </md-card>
+<section> 
+
+<md-content layout="column" layout-fill>
+
+<div>
+    <md-button ui-sref="home.newPayment" class="md-raised md-primary">Registrar contribuição</md-button>
 </div>
+
+<div>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Contribuiçoes</span>
+      </div>
+    </md-toolbar>
+  <md-table-container  md-progress="promise">
+    <table >
+        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+            <tr md-row class="even">
+                <td md-column md-order-by="nameToLower">ID contribuição</td>
+                <td md-column >ID do contribuinte</td>
+                <td md-column >Nome do contribuinte</td>
+                <td md-column >Data</td>
+                <td md-column >Valor</td>
+                <td  md-column ></td>
+            </tr>
+        </thead>
+
+        <tbody md-body>
+            <tr md-row md-select="payment" md-select-id="name" md-auto-select ng-repeat="payment in paymentss"  class="even">
+                <td md-cell>{{payment.id}}</td>
+                <td md-cell>{{payment.cod}}</td>
+                <td md-cell>{{payment.nome}}</td>
+                <td md-cell>{{payment.data}}</td>
+                <td md-cell>{{payment.valor | finance:true:3 }}</td>
+                <td md-cell>
+                    <md-button class="md-raised md-primary" ui-sref="home.viewPayment({id:contrib.id})">View</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="home.deletePayment(contrib)">Delete</md-button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </md-table-container>
+  <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{payments.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+</div>
+
+</md-content>
+
+</section>
+

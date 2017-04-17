@@ -48,6 +48,11 @@
 				title: 'Settings',
 				icon: 'settings'
 			}
+			// {
+			// 	link: 'users',
+			// 	title: 'Usuários',
+			// 	icon: 'settings'
+			// }
 		];
 
 		vm.navigateTo = function (target) {

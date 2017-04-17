@@ -16,10 +16,11 @@
 		.controller('ContribCreateController', ContribCreateController)
 		.controller('ContribEditController', ContribEditController);
 
-		ContribListController.$inject = ['$scope','$state','popupService','$window','Contrib'];
-		ContribViewController.$inject = ['$scope','$stateParams','Contrib'];
-		ContribCreateController.$inject = ['$scope','$state','$stateParams','Contrib'];
-		ContribEditController.$inject = ['$scope','$state','$stateParams','Contrib'];
+		ContribListController.$inject = ['$scope','$state','popupService','$window','Contrib','tmhDynamicLocale'];
+		ContribViewController.$inject = ['$scope','$stateParams','Contrib','tmhDynamicLocale'];
+		ContribCreateController.$inject = ['$scope','$state','$stateParams','Contrib','tmhDynamicLocale', 'brCidadesEstados'];
+		ContribEditController.$inject = ['$scope','$state','$stateParams','Contrib','tmhDynamicLocale', 'brCidadesEstados'];
+
 
 		/*
 		* recommend
@@ -27,7 +28,7 @@
 		* and bindable members up top.
 		*/
 
-		function ContribListController($scope,$state,popupService,$window,Contrib) {
+		function ContribListController($scope,$state,popupService,$window,Contrib, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
@@ -48,7 +49,7 @@
 
 		}
 
-		function ContribViewController($scope,$stateParams,Contrib) {
+		function ContribViewController($scope,$stateParams,Contrib, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
@@ -58,7 +59,7 @@
 
 		}
 
-		function ContribCreateController ($scope,$state,$stateParams,Contrib) {
+		function ContribCreateController ($scope,$state,$stateParams,Contrib, tmhDynamicLocale, brCidadesEstados) {
 			/*jshint validthis: true */
 			var vm = this;
 
@@ -72,9 +73,20 @@
 
 		}
 
-		function ContribEditController($scope,$state,$stateParams,Contrib) {
+		function ContribEditController($scope,$state,$stateParams,Contrib, tmhDynamicLocale, brCidadesEstados) {
 			/*jshint validthis: true */
 			var vm = this;
+
+
+
+			tmhDynamicLocale.set('pt-br');
+
+			$scope.estados = brCidadesEstados.estados;
+
+			 $scope.buscarCidadesPorSigla = function(sigla){
+			 	console.log(sigla);
+		         $scope.cidades = brCidadesEstados.buscarCidadesPorSigla(sigla);
+			 }
 
 			$scope.updateContrib=function(){
 		        var promise = $scope.contribs.$update({id:$stateParams.id});

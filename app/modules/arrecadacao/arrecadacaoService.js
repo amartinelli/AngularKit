@@ -11,14 +11,41 @@
 
   	angular
 		.module('arrecadacao')
-		.factory('ArrecadacaoService', Arrecadacao);
+		.factory('PaymentsService', Payments)
+		.factory('Payment', Payment)
+		.service('popupServicePayment', popupServicePayment);
 		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 		// function Name ($http, someSevide) {...}
 
-		Arrecadacao.$inject = ['$http'];
+		Payments.$inject = ['$http'];
 
-		function Arrecadacao ($http) {
+		function Payments ($http) {
 
+		}
+
+		Payment.$inject = ['$resource', '$rootScope'];
+
+		function Payment ($resource, $rootScope) {
+			if (typeof($rootScope.globals.currentUser) == "undefined")
+			{
+				var token = '';
+			}else{
+				var token = $rootScope.globals.currentUser.token;
+			}
+
+			
+
+		    return $resource($rootScope.UrlAPIPayments+':id',{id:'@_id', access_token: token},{
+		        update: {
+		            method: 'PUT'
+		        }
+		    });
+		}
+		
+		function popupServicePayment ($window) {
+		    this.showPopup=function(message){
+		        return $window.confirm(message);
+		    }
 		}
 
 })();

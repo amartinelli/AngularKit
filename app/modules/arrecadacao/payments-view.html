@@ -1,0 +1,48 @@
+<div  layout="column" ng-cloak class="md-inline-form">
+
+  <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding  layout-fill>
+
+
+<table class="table movietable">
+    <tr>
+        <td><h3>Detalhes da contribuição {{payments.$index}}</h3></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>ID</td>
+        <td>{{payments.id}}</td>
+    </tr>
+    <tr>
+        <td>Valor</td>
+        <td>{{payments.valor |  finance:true:2 }}</td>
+    </tr>
+    <tr>
+        <td>Data</td>
+        <td>{{payments.data |  date: 'dd/MM/yyyy' }}</td>
+    </tr>
+    <tr>
+        <td>ID do contribuinte</td>
+        <td>{{payments.id_user_contrib}}</td>
+    </tr>
+    <tr>
+        <td>Nome do contribuinte</td>
+        <td>{{payments.nome_user_contrib}}</td>
+    </tr>
+    <tr>
+        <td>Data do registro</td>
+        <td>{{payments.createdAt |  date: 'dd/MM/yyyy' }}</td>
+    </tr>
+    <tr>
+        <td>Data da ultima alteração</td>
+        <td>{{payments.updatedAt |  date: 'dd/MM/yyyy' }}</td>
+    </tr>
+
+</table>
+<div>
+    <md-button class="md-raised md-primary" ui-sref="home.editPayment({id:payments.id})">Edit</md-button>
+    
+</div>
+
+</md-content>
+
+</div>

@@ -9,6 +9,8 @@
 	 * Module of the app
 	 */
 
-  	angular.module('arrecadacao', []);
-
+  	angular.module('arrecadacao', ['tmh.dynamicLocale'])
+  	.config(function(tmhDynamicLocaleProvider) {
+	    tmhDynamicLocaleProvider.localeLocationPattern('/node_modules/angular-i18n/angular-locale_{{locale}}.js');
+	  });
 })();

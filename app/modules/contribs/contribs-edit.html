@@ -20,6 +20,13 @@
 
     <div>
       <md-input-container>
+        <label>Numero</label>
+        <input ng-model="contribs.numero" placeholder="Numero/Codigo do Contribuinte">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
         <label>E-Mail</label>
         <input ng-model="contribs.email" placeholder="E-Mail do Contribuinte" >
       </md-input-container>
@@ -35,21 +42,21 @@
     <div>
       <md-input-container>
         <label>Data de Batismo</label>
-        <input ng-model="contribs.dtbatismo" placeholder="Data de Batismo do Contribuinte" ui-date-mask="DD-MM-YYYY">
+        <input ng-model="contribs.dtbatismo" placeholder="Data de Batismo do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Data de Crisma</label>
-        <input ng-model="contribs.dtcrisma" placeholder="Data de Crisma do Contribuinte" ui-date-mask="DD-MM-YYYY">
+        <input ng-model="contribs.dtcrisma" placeholder="Data de Crisma do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Data de Aniverssário de Casamento</label>
-        <input ng-model="contribs.dtanivercasamento" placeholder="Data de Aniverssário de Casamento do Contribuinte" ui-date-mask="DD-MM-YYYY">
+        <input ng-model="contribs.dtanivercasamento" placeholder="Data de Aniverssário de Casamento do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
@@ -63,7 +70,7 @@
     <div>
       <md-input-container>
         <label>Data do Aniverssário do Conjuge</label>
-        <input ng-model="contribs.dtaniverconjuge" placeholder="Data do Aniverssário do Contribuinte" ui-date-mask="DD-MM-YYYY">
+        <input ng-model="contribs.dtaniverconjuge" placeholder="Data do Aniverssário do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
@@ -106,8 +113,8 @@
       <md-input-container>
         <label>Cidade</label>
         <!-- <input ng-model="contribs.cidade" placeholder="Cidade do Contribuinte"> -->
-        <md-select ng-model="contribs.cidade">
-            <md-option><em>Escolha uma ciadade</em></md-option>
+        <md-select ng-model="contribs.cidade" placeholder="{{contribs.cidade}}" >
+            <md-option><em>Escolha uma cidade</em></md-option>
             <md-option ng-repeat="cidade in cidades" ng-value="cidade" ng-disabled="$index === 1">
               {{cidade}}
             </md-option>

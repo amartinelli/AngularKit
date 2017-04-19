@@ -4,7 +4,7 @@
     <div>
       <md-input-container>
         <label>Valor da contribuição</label>
-        <input ng-model="payments.valor" placeholder="Valor da contribuição"  ui-money-mask="3" >
+        <input ng-model="payments.valor" placeholder="Valor da contribuição"  ui-money-mask="2" >
       </md-input-container>
     </div>
 
@@ -12,7 +12,7 @@
     <div>
       <md-input-container>
         <label>Data de contribuição</label>
-        <input ng-model="payments.data" placeholder="Data de contribuição" ui-mask="99/99/9999" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
+        <input ng-model="payments.data" placeholder="Data de contribuição" ui-date-mask>
       </md-input-container>
     </div>
 
@@ -36,7 +36,7 @@
     <div>
       <md-input-container>
         <label>Contribuinte</label>
-        <input ng-model="payments.contrib" placeholder="Contribuinte">
+        <input ng-model="payments.nome_user_contrib" placeholder="Contribuinte">
       </md-input-container>
     </div>
 
@@ -44,7 +44,7 @@
 
     <div>
       <md-input-container>
-          <md-button class="md-raised md-primary" ng-click="addpayment()">Atualizar</md-button>        
+          <md-button class="md-raised md-primary" ng-click="addPayment()">Atualizar</md-button>        
       </md-input-container>
     </div>
 

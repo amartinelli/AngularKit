@@ -10,6 +10,13 @@
 
     <div>
       <md-input-container>
+        <label>Numero</label>
+        <input ng-model="contribs.numero" placeholder="Numero/Codigo do Contribuinte">
+      </md-input-container>
+    </div>
+
+    <div>
+      <md-input-container>
         <label>E-Mail</label>
         <input ng-model="contribs.email" placeholder="E-Mail do Contribuinte">
       </md-input-container>
@@ -18,28 +25,28 @@
     <div>
       <md-input-container>
         <label>Data de Nascimento</label>
-        <input ng-model="contribs.dtnasc" placeholder="Data de Nascimento do Contribuinte" ui-mask="99/99/9999" ng-pattern="/^[0-9]{1,7}[-\.\/]?+$/">
+        <input ng-model="contribs.dtnasc" placeholder="Data de Nascimento do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Data de Batismo</label>
-        <input ng-model="contribs.dtbatismo" placeholder="Data de Batismo do Contribuinte">
+        <input ng-model="contribs.dtbatismo" placeholder="Data de Batismo do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Data de Crisma</label>
-        <input ng-model="contribs.dtcrisma" placeholder="Data de Crisma do Contribuinte">
+        <input ng-model="contribs.dtcrisma" placeholder="Data de Crisma do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Data de Aniverssário de Casamento</label>
-        <input ng-model="contribs.dtanivercasamento" placeholder="Data de Aniverssário de Casamento do Contribuinte">
+        <input ng-model="contribs.dtanivercasamento" placeholder="Data de Aniverssário de Casamento do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
@@ -53,7 +60,7 @@
     <div>
       <md-input-container>
         <label>Data do Aniverssário do Conjuge</label>
-        <input ng-model="contribs.dtaniverconjuge" placeholder="Data do Aniverssário do Contribuinte">
+        <input ng-model="contribs.dtaniverconjuge" placeholder="Data do Aniverssário do Contribuinte" ui-date-mask>
       </md-input-container>
     </div>
 
@@ -81,7 +88,13 @@
 	<div>
       <md-input-container>
         <label>Estado</label>
-        <input ng-model="contribs.estado" placeholder="Estado do Contribuinte">
+        <!-- <input ng-model="contribs.estado" placeholder="Estado do Contribuinte" > -->
+        <md-select ng-model="contribs.estado" md-on-close="buscarCidadesPorSigla(contribs.estado)">
+            <md-option><em>Escolha um Estado</em></md-option>
+            <md-option ng-repeat="estado in estados" ng-value="estado.sigla" ng-disabled="$index === 1">
+              {{estado.sigla}} - {{estado.nome}}
+            </md-option>
+          </md-select>
       </md-input-container>
     </div>
 
@@ -89,28 +102,35 @@
     <div>
       <md-input-container>
         <label>Cidade</label>
-        <input ng-model="contribs.cidade" placeholder="Cidade do Contribuinte">
+        <!-- <input ng-model="contribs.cidade" placeholder="Cidade do Contribuinte"> -->
+        <md-select ng-model="contribs.cidade">
+            <md-option><em>Escolha uma ciadade</em></md-option>
+            <md-option ng-repeat="cidade in cidades" ng-value="cidade" ng-disabled="$index === 1">
+              {{cidade}}
+            </md-option>
+          </md-select>
+        
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Cep</label>
-        <input ng-model="contribs.cep" placeholder="CEP do Contribuinte">
+        <input ng-model="contribs.cep" placeholder="CEP do Contribuinte"  ui-br-cep-mask>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Telefone</label>
-        <input ng-model="contribs.telefone" placeholder="Telefone do Contribuinte">
+        <input ng-model="contribs.telefone" placeholder="Telefone do Contribuinte"  ui-br-phone-number>
       </md-input-container>
     </div>
 
     <div>
       <md-input-container>
         <label>Celular</label>
-        <input ng-model="contribs.celular" placeholder="Celular do Contribuinte">
+        <input ng-model="contribs.celular" placeholder="Celular do Contribuinte"  ui-br-phone-number>
       </md-input-container>
     </div>
 

@@ -13,6 +13,7 @@
 		.module('arrecadacao')
 		.factory('PaymentsService', Payments)
 		.factory('Payment', Payment)
+		.factory('Contrib', Contrib)
 		.service('popupServicePayment', popupServicePayment);
 		// Inject your dependencies as .$inject = ['$http', 'someSevide'];
 		// function Name ($http, someSevide) {...}
@@ -36,6 +37,30 @@
 			
 
 		    return $resource($rootScope.UrlAPIPayments+':id',{id:'@_id', access_token: token},{
+		        update: {
+		            method: 'PUT'
+		        }
+
+		        // ,get: {
+		        // 	method: 'GET',
+		        // 	isArray:true
+		        // }
+		    });
+		}
+
+		Contrib.$inject = ['$resource', '$rootScope'];
+
+		function Contrib ($resource, $rootScope) {
+			if (typeof($rootScope.globals.currentUser) == "undefined")
+			{
+				var token = '';
+			}else{
+				var token = $rootScope.globals.currentUser.token;
+			}
+
+			
+
+		    return $resource($rootScope.UrlAPIContribs+':id',{id:'@_id', access_token: token},{
 		        update: {
 		            method: 'PUT'
 		        }

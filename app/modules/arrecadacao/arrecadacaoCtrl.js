@@ -18,8 +18,8 @@
 
 		PaymentListController.$inject = ['$scope','$state','popupService','$window','Payment','tmhDynamicLocale'];
 		PaymentViewController.$inject = ['$scope','$stateParams','Payment','tmhDynamicLocale'];
-		PaymentCreateController.$inject = ['$scope','$state','$stateParams','Payment','tmhDynamicLocale'];
-		PaymentEditController.$inject = ['$scope','$state','$stateParams','Payment','tmhDynamicLocale'];
+		PaymentCreateController.$inject = ['$scope','$state','$stateParams','Payment','Contrib','tmhDynamicLocale'];
+		PaymentEditController.$inject = ['$scope','$state','$stateParams','Payment','Contrib','tmhDynamicLocale'];
 
 
 		/*
@@ -34,14 +34,14 @@
 
 			var response = Payment.query();
 
-			$scope.Payments = response;
+			$scope.payments = response;
 			
 
-		    $scope.deletePayment=function(Payment){
+		    $scope.deletePayment=function(payment){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
-	            Payment.$delete(function(){
-	            	 $state.go('home.Payments');
+	            payment.$delete(function(){
+	            	 $state.go('home.arrecadacao');
 	                // $window.location.href='';
 	            });
 		        }
@@ -53,47 +53,56 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			$scope.Payments=Payment.get({id:$stateParams.id});
+			$scope.payments=Payment.get({id:$stateParams.id});
 
 
 
 		}
 
-		function PaymentCreateController ($scope,$state,$stateParams,Payment, tmhDynamicLocale) {
+		function PaymentCreateController ($scope,$state,$stateParams,Payment,Contrib, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
-			$scope.Payments=new Payment();
+			
+			var response = Contrib.query();
+
+			$scope.contribs = response;
+			
+			$scope.payments=new Payment();
+
+
 
 		    $scope.addPayment=function(){
-		        $scope.Payments.$save(function(){
-		            $state.go('home.Payments');
+		        $scope.payments.$save(function(){
+		            $state.go('home.arrecadacao');
 		        });
 		    }
 
 		}
 
-		function PaymentEditController($scope,$state,$stateParams,Payment, tmhDynamicLocale) {
+		function PaymentEditController($scope,$state,$stateParams,Payment,Contrib, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
+			var response = Contrib.query();
 
+			$scope.contribs = response;
 
-			tmhDynamicLocale.set('pt-br');
+			// tmhDynamicLocale.set('pt-br');
 
 			
 
 			$scope.updatePayment=function(){
-		        var promise = $scope.Payments.$update({id:$stateParams.id});
+		        var promise = $scope.payments.$update({id:$stateParams.id});
 
 		        promise.then(function (out) {
-				    $state.go('home.Payments');
+				    $state.go('home.arrecadacao');
 				});
 		        
 		    };
 
 		    $scope.loadPayment=function(){
-		        $scope.Payments=Payment.get({id:$stateParams.id});
+		        $scope.payments=Payment.get({id:$stateParams.id});
 		    };
 
 		    $scope.loadPayment();			

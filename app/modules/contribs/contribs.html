@@ -16,6 +16,7 @@
     <table >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row class="even">
+                <td md-column md-order>Numero</td>
                 <td md-column md-order-by="nameToLower">Nome</td>
                 <td md-column >Email</td>
                 <td md-column >Telefone</td>
@@ -25,12 +26,13 @@
 
         <tbody md-body>
             <tr md-row md-select="contrib" md-select-id="name" md-auto-select ng-repeat="contrib in contribs"  class="even">
+                <td md-cell>{{contrib.numero}}</td>
                 <td md-cell>{{contrib.nome}}</td>
                 <td md-cell>{{contrib.email}}</td>
                 <td md-cell>{{contrib.telefone | brPhoneNumber }}</td>
                 <td md-cell>
                     <md-button class="md-raised md-primary" ui-sref="home.viewContrib({id:contrib.id})">View</md-button>
-                    <md-button class="md-raised md-primary"  ng-click="home.deleteContrib(contrib)">Delete</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="deleteContrib(contrib)">Delete</md-button>
                 </td>
             </tr>
         </tbody>

@@ -38,7 +38,7 @@
 			
 
 		    $scope.deleteContrib=function(contrib){
-	        if(popupService.showPopup('Deseja realmente deleter ?')){
+	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
 	            contrib.$delete(function(){
 	            	 $state.go('home.contribs');
@@ -65,6 +65,13 @@
 
 			$scope.contribs=new Contrib();
 
+			$scope.estados = brCidadesEstados.estados;
+
+			$scope.buscarCidadesPorSigla = function(sigla){
+			 	console.log(sigla);
+		         $scope.cidades = brCidadesEstados.buscarCidadesPorSigla(sigla);
+			 }
+
 		    $scope.addContrib=function(){
 		        $scope.contribs.$save(function(){
 		            $state.go('home.contribs');
@@ -77,11 +84,11 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-
-
 			tmhDynamicLocale.set('pt-br');
 
 			$scope.estados = brCidadesEstados.estados;
+
+
 
 			 $scope.buscarCidadesPorSigla = function(sigla){
 			 	console.log(sigla);

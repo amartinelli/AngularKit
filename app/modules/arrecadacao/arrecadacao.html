@@ -26,15 +26,15 @@
         </thead>
 
         <tbody md-body>
-            <tr md-row md-select="payment" md-select-id="name" md-auto-select ng-repeat="payment in paymentss"  class="even">
-                <td md-cell>{{payment.id}}</td>
-                <td md-cell>{{payment.cod}}</td>
-                <td md-cell>{{payment.nome}}</td>
-                <td md-cell>{{payment.data}}</td>
-                <td md-cell>{{payment.valor | finance:true:3 }}</td>
+            <tr md-row md-select="payment" md-select-id="name" md-auto-select ng-repeat="payment in payments"  class="even">
+                <td md-cell>{{$index+1}}</td>
+                <td md-cell>{{payment.contribuinte.numero}}</td>
+                <td md-cell>{{payment.contribuinte.nome}}</td>
+                <td md-cell>{{payment.data |  date: 'dd/MM/yyyy'}}</td>
+                <td md-cell>{{payment.valor | finance:true:2 }}</td>
                 <td md-cell>
-                    <md-button class="md-raised md-primary" ui-sref="home.viewPayment({id:contrib.id})">View</md-button>
-                    <md-button class="md-raised md-primary"  ng-click="home.deletePayment(contrib)">Delete</md-button>
+                    <md-button class="md-raised md-primary" ui-sref="home.viewPayment({id:payment.id})">View</md-button>
+                    <md-button class="md-raised md-primary"  ng-click="deletePayment(payment)">Delete</md-button>
                 </td>
             </tr>
         </tbody>

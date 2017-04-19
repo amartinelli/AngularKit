@@ -40,7 +40,7 @@
 		    $scope.deletePayment=function(payment){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
-	            payment.$delete(function(){
+	            payment.$delete({id:payment.id},function(){
 	            	 $state.go('home.arrecadacao');
 	                // $window.location.href='';
 	            });

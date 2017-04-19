@@ -40,8 +40,12 @@
 		    $scope.deleteContrib=function(contrib){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
-	            contrib.$delete(function(){
+	            contrib.$delete({id:contrib.id},function(){
 	            	 $state.go('home.contribs');
+					var response = Contrib.query();
+
+					$scope.contribs = response;
+	            	 
 	                // $window.location.href='';
 	            });
 		        }

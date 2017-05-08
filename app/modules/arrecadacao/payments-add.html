@@ -2,9 +2,9 @@
 
   <md-content md-theme="docs-dark" layout-gt-sm="column" layout-padding  layout-fill>
     <div>
-      <md-input-container>
+      <md-input-container >
         <label>Valor da contribuição</label>
-        <input ng-model="payments.valor" placeholder="Valor da contribuição"  ui-money-mask="2" >
+        <input ng-model="payments.valor"  md-placeholder="Valor da contribuição"  ui-money-mask="2" >
       </md-input-container>
     </div>
 
@@ -12,7 +12,8 @@
     <div>
       <md-input-container>
         <label>Data de contribuição</label>
-        <input ng-model="payments.data" placeholder="Data de contribuição" ui-date-mask>
+        <input ng-model="payments.data" type="date" placeholder="Data de contribuição" min="2017-05-01" >
+         <!-- <md-datepicker ng-model="payments.data" ui-date-mask></md-datepicker> -->
       </md-input-container>
     </div>
 
@@ -20,7 +21,7 @@
     <div>
       <md-input-container>
         <label>Descrição</label>
-        <input ng-model="payments.desc" placeholder="Nome do conjuge do contribuinte">
+        <input ng-model="payments.desc"  md-placeholder="Nome do conjuge do contribuinte">
       </md-input-container>
     </div>
 

@@ -41,8 +41,13 @@
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
 	            payment.$delete({id:payment.id},function(){
+	            	var response = Payment.query();
+
+					$scope.payments = response;
 	            	 $state.go('home.arrecadacao');
 	                // $window.location.href='';
+
+
 	            });
 		        }
 		    }
@@ -69,6 +74,12 @@
 			$scope.contribs = response;
 			
 			$scope.payments=new Payment();
+
+			$scope.myDate = null;
+
+			$scope.minDate = new Date();
+
+			$scope.maxDate = new Date();
 
 
 

@@ -21,7 +21,13 @@
 md-input-container {
     
     margin: 0 0;
+
+    min-width: 400px;
     
+}
+
+.md-datepicker-input {
+  min-width: 335px;
 }
 
 .error {

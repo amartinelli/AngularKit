@@ -41,10 +41,11 @@
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
 	            
 	            contrib.$delete({id:contrib.id},function(){
-	            	 $state.go('home.contribs');
+	            	 
 					var response = Contrib.query();
 
 					$scope.contribs = response;
+					$state.go('home.contribs');
 	            	 
 	                // $window.location.href='';
 	            });

@@ -11,6 +11,11 @@
     "postinstall": "grunt uglify",
     "start": "node server.js"
   },
+  "scripts": {
+    "start": "grunt uglify",
+    "test": "karma start karma.conf.js",
+    "postinstall": "bower install --config.interactive=false"
+  },
   "dependencies": {
     "angular-dynamic-locale": "^0.1.32",
     "angular-i18n": "^1.6.4",

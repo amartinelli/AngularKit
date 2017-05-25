@@ -9,7 +9,7 @@
   },
 "scripts": {
     "postinstall": "grunt uglify",
-    "start": "node web.js"
+    "start": "node server.js"
   },
   "dependencies": {
     "angular-dynamic-locale": "^0.1.32",

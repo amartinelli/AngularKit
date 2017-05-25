@@ -82,13 +82,16 @@ module.exports = function (grunt) {
 		connect: {
 			server: {
 				options: {
-					keepalive: true,
-					port: 4000,
-					base: '.',
-					hostname: '0.0.0.0',
-					debug: true,
-					livereload: true,
-					open: true
+					port: process.env.PORT || 5000,
+ 					base: 'www',
+					keepalive: true
+					//keepalive: true,
+					//port: 5000,
+					//base: '.',
+					//hostname: '0.0.0.0',
+					//debug: true,
+					//livereload: true,
+					//open: true
 				}
 			}
 		},

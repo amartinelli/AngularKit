@@ -7,6 +7,11 @@
     "node": "0.10.x",
     "npm": "1.4.x"
   },
+//  "scripts": {
+//    "start": "grunt build",
+//    "test": "karma start karma.conf.js",
+//    "postinstall": "bower install --config.interactive=false"
+//  },
 "scripts": {
     "postinstall": "grunt uglify",
     "start": "node web.js"

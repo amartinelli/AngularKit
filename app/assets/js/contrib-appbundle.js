@@ -1,5 +1,5 @@
 /*!
-* contrib - v0.0.1 - MIT LICENSE 2017-05-17. 
+* contrib - v0.0.1 - MIT LICENSE 2017-05-25. 
 * @author Andre Agunzi
 */
 (function() {

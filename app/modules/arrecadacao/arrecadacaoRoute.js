@@ -37,6 +37,11 @@ angular.module('arrecadacao')
 		        templateUrl:'app/modules/arrecadacao/payments-delete.html',
 		        controller:'PaymentEditController',
 		        controllerAs: 'vm'
+		    }).state('home.recibo',{
+		        url:'/arrecadacao/:id/recibo',
+		        templateUrl:'app/modules/arrecadacao/recibo.html',
+		        controller:'PaymentViewController',
+		        controllerAs: 'vm'
 		    });
 			
 

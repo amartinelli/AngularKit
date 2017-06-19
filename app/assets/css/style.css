@@ -1,9 +1,13 @@
 .main {
 	color: #838383;
+  background-image: url("/app/assets/images/fundo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .login {
-	background-color: #F0F8FF;
+  background:rgba(255,255,255,0.8);
+	/*background-color: #F0F8FF;*/
 }
 
 .alertlogin {
@@ -47,7 +51,10 @@ md-sidenav {
 }
 
 .background {
-	background-color: white;
+	/*background-color: white;*/
+  background-image: url("/app/assets/images/fundo.png");
+  background-repeat: no-repeat;
+  background-position: center center;
 }
 
 .checkboxdemoSelectAll .demo-legend {

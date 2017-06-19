@@ -42,15 +42,16 @@
 		console.log('AngularJS run() function...');
 
 		$rootScope.mastertoken = '9S9JgTyAG0VdGcmjHKxSUuKnyTgQrt1a';
-		// $rootScope.UrlAPIUsers = 'http://0.0.0.0:9000/users/';
-		// $rootScope.UrlAPIContribs = 'http://0.0.0.0:9000/contribs/';
-		// $rootScope.UrlAPIPayments = 'http://0.0.0.0:9000/payments/';
-		// $rootScope.UrlAPIAuth = 'http://0.0.0.0:9000/auth';
-		$rootScope.mastertoken = '9S9JgTyAG0VdGcmjHKxSUuKnyTgQrt1a';
-		$rootScope.UrlAPIUsers = 'https://contribserver.herokuapp.com/users/';
-		$rootScope.UrlAPIContribs = 'https://contribserver.herokuapp.com/contribs/';
-		$rootScope.UrlAPIPayments = 'https://contribserver.herokuapp.com/payments/';
-		$rootScope.UrlAPIAuth = 'https://contribserver.herokuapp.com/auth';
+
+		$rootScope.UrlAPIUsers = 'http://0.0.0.0:9000/users/';
+		$rootScope.UrlAPIContribs = 'http://0.0.0.0:9000/contribs/';
+		$rootScope.UrlAPIPayments = 'http://0.0.0.0:9000/payments/';
+		$rootScope.UrlAPIAuth = 'http://0.0.0.0:9000/auth';
+		
+		// $rootScope.UrlAPIUsers = 'https://contribserver.herokuapp.com/users/';
+		// $rootScope.UrlAPIContribs = 'https://contribserver.herokuapp.com/contribs/';
+		// $rootScope.UrlAPIPayments = 'https://contribserver.herokuapp.com/payments/';
+		// $rootScope.UrlAPIAuth = 'https://contribserver.herokuapp.com/auth';
 	}
 
 	AuthorizationVerify.$inject = ['$rootScope', '$location' ,'$state' , '$cookieStore', '$http', 'AuthenticationService'];
@@ -63,7 +64,7 @@
         $rootScope.token = $cookieStore.get('token') || {};
         $rootScope.user = $cookieStore.get('user') || {};
 
-        if (typeof($rootScope.globals.currentUser) != "undefined") {
+        if (typeof($rootScope.globals.currentUser) !== "undefined") {
             $http.defaults.headers.common['Authorization'] = 'Basic ' + $rootScope.globals.currentUser.authdata; // jshint ignore:line
         }
   

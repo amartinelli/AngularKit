@@ -24,10 +24,16 @@
 	function Home(homeService , $rootScope) {
 		/*jshint validthis: true */
 		var vm = this;
-		// console.log($rootScope.globals.currentUser.user)
+		// console.log(typeof($rootScope.globals.currentUser))
 		
 		if (typeof($rootScope.globals.currentUser) !== "undefined")
-			vm.title = 'Olá '+$rootScope.globals.currentUser.user.name ;
+			if (typeof($rootScope.globals.currentUser.name) !== "undefined")
+			{
+				vm.title = 'Olá '+$rootScope.globals.currentUser.user.name ;
+			}else{
+				vm.title = 'Olá ' ;
+			}	
+			
 		vm.version = "1.0.0";
 		vm.listFeatures = homeService.getFeaturesList();
 

@@ -24,6 +24,8 @@
 		'ui.utils.masks',
 		'tmh.dynamicLocale',
 		'ui.utils.masks',
+		// 'angular-i18n',
+		'ngLocale',
 		'home',
 		'auth',
 		'users',

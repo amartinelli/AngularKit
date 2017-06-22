@@ -10,16 +10,20 @@
 
 </p>
 <p style="margin-bottom: 0cm; line-height: 200%; orphans: 0; widows: 0">
-Recebi(emos) de {{payments.contribuinte.nome }}
-<b></b><br/>
-a
-quantia de <b>{{payments.valor |  finance:true:2 }}
-</b>(<b> {{ctrl.extenso(payments.valor)}} </b>
+Recebi(emos) de <b>{{payments.contribuinte.nome }}</b> 
+<br/>
+a quantia de <b>{{payments.valor |  finance:true:2 }}</b>
+(<b> {{ctrl.ValorPorExtenso(payments.valor)}} reais </b>
 
-reais), correspondente a
+), correspondente a
 <b> contribuição paroquial</b>,
+<br>
+
 e para clareza, firmo(amos) o presente na cidade de
+
 <b> Presidente Venceslau</b>
+
+<br><br><br>
 na data de {{ ctrl.dia }} de {{ ctrl.mes }} de {{ ctrl.ano }}
 
 </p>

@@ -25,6 +25,8 @@
 		/*jshint validthis: true */
 		var vm = this;
 		// console.log(typeof($rootScope.globals.currentUser))
+
+		vm.recibo = $rootScope.recibo;
 		
 		if (typeof($rootScope.globals.currentUser) !== "undefined")
 			if (typeof($rootScope.globals.currentUser.name) !== "undefined")

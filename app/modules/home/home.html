@@ -1,4 +1,4 @@
-<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" ng-show='telaLogin'>
+<md-sidenav layout="column" class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" ng-show='telaLogin'  ng-hide="recibo"> {{vm.recibo}}
     <div ng-controller="SidenavCtrl as vm" ng-cloak>
         <a href="#!home" >
             <img src="/app/assets/images/logo.png" >
@@ -38,9 +38,9 @@
     </div>
 </md-sidenav>
 
-<div layout="column" class="relative background" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak >
+<div layout="column" class="relative background" layout-fill role="main" ng-controller="LayoutCtrl as layout" ng-cloak  >
 <!--ng-show="!showSearch"-->
-    <md-toolbar ng-show='telaLogin'>
+    <md-toolbar ng-show='telaLogin'  ng-hide="recibo">
         <div class="md-toolbar-tools">
             <md-button ng-click="layout.toggleSidenav('left')" hide-gt-md aria-label="Menu">
                 <ng-md-icon icon="menu"></ng-md-icon>
@@ -78,7 +78,7 @@
             </md-menu>
         </div>
     </md-toolbar>
-    <md-toolbar class="md-hue-1" ng-show="showSearch">
+    <md-toolbar class="md-hue-1" ng-show="showSearch"  ng-hide="recibo">
         <div class="md-toolbar-tools">
             <md-button ng-click="showSearch = !showSearch" aria-label="Back">
                 <ng-md-icon icon="arrow_back"></ng-md-icon>

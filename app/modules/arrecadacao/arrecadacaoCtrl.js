@@ -17,7 +17,7 @@
 		.controller('PaymentEditController', PaymentEditController);
 
 		PaymentListController.$inject = ['$scope','$state','popupService','$window','Payment','tmhDynamicLocale'];
-		PaymentViewController.$inject = ['$scope','$stateParams','Payment','tmhDynamicLocale'];
+		PaymentViewController.$inject = ['$rootScope','$scope','$stateParams','Payment','tmhDynamicLocale'];
 		PaymentCreateController.$inject = ['$scope','$state','$stateParams','Payment','Contrib','tmhDynamicLocale'];
 		PaymentEditController.$inject = ['$scope','$state','$stateParams','Payment','Contrib','tmhDynamicLocale'];
 
@@ -36,6 +36,9 @@
 
 			$scope.payments = response;
 			
+			vm.PrintRecibo = function (id){
+				window.open("#!/arrecadacao/"+id.id+"/recibo", "Impressao Recibo")
+			}
 
 		    $scope.deletePayment=function(payment){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
@@ -54,43 +57,221 @@
 
 		}
 
-		function extenso (c){
-		    var ex = [
-		        ["zero", "um", "dois", "três", "quatro", "cinco", "seis", "sete", "oito", "nove", "dez", "onze", "doze", "treze", "quatorze", "quinze", "dezesseis", "dezessete", "dezoito", "dezenove"],
-		        ["dez", "vinte", "trinta", "quarenta", "cinqüenta", "sessenta", "setenta", "oitenta", "noventa"],
-		        ["cem", "cento", "duzentos", "trezentos", "quatrocentos", "quinhentos", "seiscentos", "setecentos", "oitocentos", "novecentos"],
-		        ["mil", "milhão", "bilhão", "trilhão", "quadrilhão", "quintilhão", "sextilhão", "setilhão", "octilhão", "nonilhão", "decilhão", "undecilhão", "dodecilhão", "tredecilhão", "quatrodecilhão", "quindecilhão", "sedecilhão", "septendecilhão", "octencilhão", "nonencilhão"]
-		    ];
-		    var a, n, v, i, n = this.replace(c ? /[^,\d]/g : /\D/g, "").split(","), e = " e ", $ = "real", d = "centavo", sl;
-		    for(var f = n.length - 1, l, j = -1, r = [], s = [], t = ""; ++j <= f; s = []){
-		        j && (n[j] = (("." + n[j]) * 1).toFixed(2).slice(2));
-		        if(!(a = (v = n[j]).slice((l = v.length) % 3).match(/\d{3}/g), v = l % 3 ? [v.slice(0, l % 3)] : [], v = a ? v.concat(a) : v).length) continue;
-		        for(a = -1, l = v.length; ++a < l; t = ""){
-		            if(!(i = v[a] * 1)) continue;
-		            i % 100 < 20 && (t += ex[0][i % 100]) ||
-		            i % 100 + 1 && (t += ex[1][(i % 100 / 10 >> 0) - 1] + (i % 10 ? e + ex[0][i % 10] : ""));
-		            s.push((i < 100 ? t : !(i % 100) ? ex[2][i == 100 ? 0 : i / 100 >> 0] : (ex[2][i / 100 >> 0] + e + t)) +
-		            ((t = l - a - 2) > -1 ? " " + (i > 1 && t > 0 ? ex[3][t].replace("ão", "ões") : ex[3][t]) : ""));
-		        }
-		        a = ((sl = s.length) > 1 ? (a = s.pop(), s.join(" ") + e + a) : s.join("") || ((!j && (n[j + 1] * 1 > 0) || r.length) ? "" : ex[0][0]));
-		        a && r.push(a + (c ? (" " + (v.join("") * 1 > 1 ? j ? d + "s" : (/0{6,}$/.test(n[0]) ? "de " : "") + $.replace("l", "is") : j ? d : $)) : ""));
-		    }
-		    return r.join(e);
-		}
 
-		function PaymentViewController($scope,$stateParams,Payment, tmhDynamicLocale) {
+
+		function PaymentViewController($rootScope, $scope,$stateParams,Payment, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
-			$scope.payments=Payment.get({id:$stateParams.id});
+			$rootScope.recibo = $stateParams.recibo;
+			
+
+
+			// Define as partes do valor por extenso
+				vm.extenso = [];
+
+				vm.extenso[1] = 'um';
+				vm.extenso[2] = 'dois';
+				vm.extenso[3] = 'tres';
+				vm.extenso[4] = 'quatro';
+				vm.extenso[5] = 'cinco';
+				vm.extenso[6] = 'seis';
+				vm.extenso[7] = 'sete';
+				vm.extenso[8] = 'oito';
+				vm.extenso[9] = 'nove';
+				vm.extenso[10] = 'dez';
+				vm.extenso[11] = 'onze';
+				vm.extenso[12] = 'doze';
+				vm.extenso[13] = 'treze';
+				vm.extenso[14] = 'quatorze';
+				vm.extenso[15] = 'quinze';
+				vm.extenso[16] = 'dezesseis';
+				vm.extenso[17] = 'dezessete';
+				vm.extenso[18] = 'dezoito';
+				vm.extenso[19] = 'dezenove';
+				vm.extenso[20] = 'vinte';
+				vm.extenso[30] = 'trinta';
+				vm.extenso[40] = 'quarenta';
+				vm.extenso[50] = 'cinquenta';
+				vm.extenso[60] = 'sessenta';
+				vm.extenso[70] = 'setenta';
+				vm.extenso[80] = 'oitenta';
+				vm.extenso[90] = 'noventa';
+				vm.extenso[100] = 'cem';
+				vm.extenso[200] = 'duzentos';
+				vm.extenso[300] = 'trezentos';
+				vm.extenso[400] = 'quatrocentos';
+				vm.extenso[500] = 'quinhentos';
+				vm.extenso[600] = 'seiscentos';
+				vm.extenso[700] = 'setecentos';
+				vm.extenso[800] = 'oitocentos';
+				vm.extenso[900] = 'novecentos';
+
+			vm.ValorPorExtenso = function (valor){
+
+				var restante = parseInt(valor);
+
+				var retorno = '';
+
+				var trilhao = 	1000000000000,
+					bilhao 	= 	1000000000,
+					milhao 	= 	1000000;
+
+				if(restante >= trilhao){
+
+					var trilhoes = Math.round(restante / trilhao) ;
+					restante = restante - (trilhoes * trilhao);
+
+					if(trilhoes > 1){
+						retorno += vm.getCentena(trilhoes) + ' trilhões';
+					}else{
+						retorno += vm.extenso[trilhoes] + ' trilhão';
+					}
+
+					if(restante > 0){
+						retorno += ', ';
+					}
+
+				}
+
+				if(restante >= bilhao){
+
+					var bilhoes = Math.round(restante / bilhao) ;
+					restante = restante - (bilhoes * bilhao);
+
+					if(bilhoes > 1){
+						retorno += vm.getCentena(bilhoes) + ' bilhões';
+					}else{
+						retorno += vm.extenso[bilhoes] + ' bilhão';
+					}
+
+					if(restante > 0){
+						retorno += ', ';
+					}
+
+				}
+
+				if(restante >= milhao){
+
+					var milhoes = Math.round(restante / milhao) ;
+					restante = restante - (milhoes * milhao);
+
+					if(milhoes > 1){
+						retorno += vm.getCentena(milhoes) + ' milhões';
+					}else{
+						retorno += vm.extenso[milhoes] + ' milhão';
+					}
+
+					if(restante > 0){
+						retorno += ', ';
+					}
+
+				}
+
+				if(restante >= 1000){
+
+					var milhas = Math.round(restante / 1000)
+					restante = restante - (milhas * 1000);
+					retorno += vm.getCentena(milhas) + ' mil';
+
+					if(restante > 0){
+						retorno += ', ';
+					}
+
+				}
+
+				retorno += vm.getCentena(restante);
+
+				return retorno;
+				
+
+			}
+
+			vm.getCentena = function (restante){
+
+				var retorno = '';
+
+				if(restante >= 100){
+
+					var milhas = Math.round(restante / 100)
+					restante = restante - (milhas * 100);
+					if(milhas === 1){
+						retorno += 'cento';
+					}else{
+						retorno += ' '+ vm.extenso[milhas * 100];
+					}
+
+					if(restante > 0){
+						retorno += ' e';
+					}
+				}
+
+				if(restante >= 10){
+
+					var milhas;
+
+
+
+					if(restante < 10){
+						milhas = Math.round(restante / 10)
+
+					}else if(restante < 19){
+						milhas = restante;
+					}
+
+					restante = restante - (milhas * 10);
+					retorno += ' '+vm.extenso[milhas];
+
+					if(restante > 0){
+						retorno += ' e';
+					}
+
+				}
+
+				if(restante >= 1){
+
+					var milhas = Math.round(restante / 1)
+					restante = restante - milhas;
+					retorno += ' '+vm.extenso[milhas];
+
+
+
+					if(restante > 0){
+						retorno += ' e';
+					}
+
+				}
+
+				return retorno;
+
+			}
+
+			var mesname = [];
+			mesname['01'] = 'Janeiro';
+			mesname['02'] = 'Fevereiro';
+			mesname['03'] = 'Março';
+			mesname['04'] = 'Abril';
+			mesname['05'] = 'Maio';			
+			mesname['06'] = 'Junho';
+			mesname['07'] = 'Julho';
+			mesname['08'] = 'Agosto';
+			mesname['09'] = 'Setembro';
+			mesname['10'] = 'Outubro';
+			mesname['11'] = 'Novembro';
+			mesname['12'] = 'Dezembro';
 
 			vm.dia = moment().format("DD");
-
-			vm.mes = moment().format("MMMM");
+			vm.mes = mesname[moment().format("MM")];
 
 			vm.ano = moment().format("YYYY");
 
 
+
+			$scope.payments=Payment.get({id:$stateParams.id});
+
+
+
+			
 
 		}
 

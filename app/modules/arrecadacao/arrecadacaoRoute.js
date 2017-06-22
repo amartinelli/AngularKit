@@ -37,13 +37,17 @@ angular.module('arrecadacao')
 		        templateUrl:'app/modules/arrecadacao/payments-delete.html',
 		        controller:'PaymentEditController',
 		        controllerAs: 'vm'
-		    }).state('home.recibo',{
+		    }).state('home.reciboPayment',{
 		        url:'/arrecadacao/:id/recibo',
 		        templateUrl:'app/modules/arrecadacao/recibo.html',
 		        controller:'PaymentViewController',
+		        params: {
+		            recibo: true
+		        },
 		        controllerAs: 'vm'
 		    });
 			
+
 
 		
 	}]);

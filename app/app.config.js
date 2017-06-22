@@ -25,6 +25,8 @@
 
 		$locationProvider.hashPrefix('!');
 
+		
+
 		// This is required for Browser Sync to work poperly
 		$httpProvider.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 

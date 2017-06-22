@@ -63,7 +63,7 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			$rootScope.recibo = $stateParams.recibo;
+			$rootScope.telaLogin = $stateParams.recibo;
 			
 
 

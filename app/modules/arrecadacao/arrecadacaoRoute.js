@@ -42,7 +42,7 @@ angular.module('arrecadacao')
 		        templateUrl:'app/modules/arrecadacao/recibo.html',
 		        controller:'PaymentViewController',
 		        params: {
-		            recibo: true
+		            recibo: false
 		        },
 		        controllerAs: 'vm'
 		    });

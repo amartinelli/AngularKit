@@ -247,18 +247,18 @@
 			}
 
 			var mesname = [];
-			mesname['1'] = 'Janeiro';
-			mesname['2'] = 'Fevereiro';
-			mesname['3'] = 'Março';
-			mesname['4'] = 'Abril';
-			mesname['5'] = 'Maio';			
-			mesname['6'] = 'Junho';
-			mesname['7'] = 'Julho';
-			mesname['8'] = 'Agosto';
-			mesname['9'] = 'Setembro';
-			mesname['10'] = 'Outubro';
-			mesname['11'] = 'Novembro';
-			mesname['12'] = 'Dezembro';
+			mesname['0'] = 'Janeiro';
+			mesname['1'] = 'Fevereiro';
+			mesname['2'] = 'Março';
+			mesname['3'] = 'Abril';
+			mesname['4'] = 'Maio';			
+			mesname['5'] = 'Junho';
+			mesname['6'] = 'Julho';
+			mesname['7'] = 'Agosto';
+			mesname['8'] = 'Setembro';
+			mesname['9'] = 'Outubro';
+			mesname['10'] = 'Novembro';
+			mesname['11'] = 'Dezembro';
 
 			// vm.dia = moment().format("DD");
 			// vm.mes = mesname[moment().format("MM")];
@@ -266,7 +266,7 @@
 			// vm.ano = moment().format("YYYY");
 
 			var agora = new Date();
-			vm.dia = agora.getDay();
+			vm.dia = agora.getDate();
 			vm.mes = mesname[agora.getMonth()];
 			vm.ano = agora.getFullYear();
 

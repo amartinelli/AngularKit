@@ -247,24 +247,28 @@
 			}
 
 			var mesname = [];
-			mesname['01'] = 'Janeiro';
-			mesname['02'] = 'Fevereiro';
-			mesname['03'] = 'Março';
-			mesname['04'] = 'Abril';
-			mesname['05'] = 'Maio';			
-			mesname['06'] = 'Junho';
-			mesname['07'] = 'Julho';
-			mesname['08'] = 'Agosto';
-			mesname['09'] = 'Setembro';
+			mesname['1'] = 'Janeiro';
+			mesname['2'] = 'Fevereiro';
+			mesname['3'] = 'Março';
+			mesname['4'] = 'Abril';
+			mesname['5'] = 'Maio';			
+			mesname['6'] = 'Junho';
+			mesname['7'] = 'Julho';
+			mesname['8'] = 'Agosto';
+			mesname['9'] = 'Setembro';
 			mesname['10'] = 'Outubro';
 			mesname['11'] = 'Novembro';
 			mesname['12'] = 'Dezembro';
 
-			vm.dia = moment().format("DD");
-			vm.mes = mesname[moment().format("MM")];
+			// vm.dia = moment().format("DD");
+			// vm.mes = mesname[moment().format("MM")];
 
-			vm.ano = moment().format("YYYY");
+			// vm.ano = moment().format("YYYY");
 
+			var agora = new Date();
+			vm.dia = agora.getDay();
+			vm.mes = mesname[agora.getMonth()];
+			vm.ano = agora.getFullYear();
 
 
 			$scope.payments=Payment.get({id:$stateParams.id});

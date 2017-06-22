@@ -18,7 +18,7 @@
 		'ngCookies',
 		'ngAnimate',
 		'ngSanitize',
-		'angularMoment',
+		// 'angularMoment',
 		'idf.br-filters',
 		'ui.router',
 		'ui.utils.masks',

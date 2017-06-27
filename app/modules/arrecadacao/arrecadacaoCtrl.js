@@ -37,8 +37,10 @@
 			$scope.payments = response;
 			
 			vm.PrintRecibo = function (id){
-				window.open("#!/arrecadacao/"+id.id+"/recibo", "Impressao Recibo")
+				window.open("#!/arrecadacao/"+id.id+"/recibo", "Impressao Recibo","width=400,height=600,location=no,menubar=no,status=no,toolbar=no")
 			}
+
+			
 
 		    $scope.deletePayment=function(payment){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){
@@ -65,7 +67,13 @@
 
 			$rootScope.telaLogin = $stateParams.recibo;
 			
-
+			$scope.printDiv = function(divName) {
+			    var printContents = document.getElementById(divName).innerHTML;
+			    var originalContents = document.body.innerHTML;        
+			    document.body.innerHTML = printContents;
+			    window.print();
+			    document.body.innerHTML = originalContents;
+			}
 
 			// Define as partes do valor por extenso
 				vm.extenso = [];

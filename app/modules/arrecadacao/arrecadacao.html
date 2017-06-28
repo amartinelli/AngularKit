@@ -13,7 +13,7 @@
       </div>
     </md-toolbar>
   <md-table-container  md-progress="promise">
-    <table >
+    <table md-table >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row class="even">
                 <td md-column md-order-by="nameToLower">ID contribuição</td>
@@ -26,7 +26,7 @@
         </thead>
 
         <tbody md-body>
-            <tr md-row md-select="payment" md-select-id="name" md-auto-select ng-repeat="payment in payments"  class="even">
+            <tr md-row md-select="payment" md-select-id="name" md-auto-select ng-repeat="payment in payments"  ng-class-odd="'odd'" ng-class-even="'even'">
                 <td md-cell>{{$index+1}}</td>
                 <td md-cell>{{payment.contribuinte.numero}}</td>
                 <td md-cell>{{payment.contribuinte.nome}}</td>

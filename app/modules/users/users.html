@@ -13,7 +13,7 @@
       </div>
     </md-toolbar>
   <md-table-container  md-progress="promise">
-    <table >
+    <table md-table >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row class="even">
                 <td md-column md-order-by="nameToLower">Nome</td>
@@ -23,7 +23,7 @@
         </thead>
 
         <tbody md-body>
-            <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in users"  class="even">
+            <tr md-row md-select="user" md-select-id="name" md-auto-select ng-repeat="user in users"  ng-class-odd="'odd'" ng-class-even="'even'">
                 <td md-cell>{{user.name}}</td>
                 <td md-cell>{{user.email}}</td>
                 <td md-cell>

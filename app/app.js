@@ -23,6 +23,7 @@
 		'ui.router',
 		'ui.utils.masks',
 		'tmh.dynamicLocale',
+		'md.data.table',
 		'ui.utils.masks',
 		// 'angular-i18n',
 		'ngLocale',

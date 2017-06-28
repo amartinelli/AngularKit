@@ -35,7 +35,23 @@
 			var response = Contrib.query();
 
 			$scope.contribs = response;
-			
+
+			$scope.selected = [];
+  
+			$scope.query = {
+			  order: 'nome',
+			  limit: 30,
+			  page: 1
+			};
+			  
+			  function success(desserts) {
+			    $scope.desserts = desserts;
+			  }
+			  
+			  $scope.getDesserts = function () {
+			    $scope.promise = $scope.contribs.get($scope.query, success).$promise;
+			  };
+
 
 		    $scope.deleteContrib=function(contrib){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){

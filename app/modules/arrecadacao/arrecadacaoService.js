@@ -60,7 +60,7 @@
 
 			
 
-		    return $resource($rootScope.UrlAPIContribs+':id',{id:'@_id', access_token: token},{
+		    return $resource($rootScope.UrlAPIContribs+':id',{id:'@_id', access_token: token, limit: 100},{
 		        update: {
 		            method: 'PUT'
 		        }

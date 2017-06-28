@@ -16,9 +16,11 @@
 
 .odd {
         background-color: #FFF;
+        opacity:0.8;
 }
 .even {
         background-color: #ccc;
+        opacity:0.8;
 }
 
 

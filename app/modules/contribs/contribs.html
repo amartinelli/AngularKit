@@ -1,6 +1,4 @@
-<section> 
-
-<md-content layout="column" layout-fill  class="background">
+<md-content layout="column" class="background">
 
 <div>
     <md-button ui-sref="home.newContrib" class="md-raised md-primary">Novo Contribuinte</md-button>
@@ -13,19 +11,19 @@
       </div>
     </md-toolbar>
   <md-table-container  md-progress="promise">
-    <table >
+    <table  md-table  >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row class="even">
-                <td md-column md-order>Numero</td>
-                <td md-column md-order-by="nameToLower">Nome</td>
+                <td md-column>Numero</td>
+                <td md-column md-order-by="nameToUpper">Nome</td>
                 <td md-column >Email</td>
                 <td md-column >Telefone</td>
-                <td  md-column ></td>
+                <td md-column ></td>
             </tr>
         </thead>
 
         <tbody md-body>
-            <tr md-row md-select="contrib" md-select-id="name" md-auto-select ng-repeat="contrib in contribs"  class="even">
+            <tr md-row ng-repeat="contrib in contribs | orderBy: 'nome' | limitTo: myLimit: (myPage - 1) * myLimit"  ng-class-odd="'odd'" ng-class-even="'even'">
                 <td md-cell>{{contrib.numero}}</td>
                 <td md-cell>{{contrib.nome}}</td>
                 <td md-cell>{{contrib.email}}</td>
@@ -38,10 +36,9 @@
         </tbody>
     </table>
   </md-table-container>
-  <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{contribs.count}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  <!-- <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{contribs.length}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination> -->
+  <md-table-pagination md-limit="30" md-page="1" md-total="{{contribs.length}}"></md-table-pagination>
 </div>
 
 </md-content>
-
-</section>
 

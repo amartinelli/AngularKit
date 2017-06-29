@@ -16,7 +16,7 @@
 		.controller('ContribCreateController', ContribCreateController)
 		.controller('ContribEditController', ContribEditController);
 
-		ContribListController.$inject = ['$scope','$state','popupService','$window','Contrib','tmhDynamicLocale'];
+		ContribListController.$inject = ['$rootScope','$scope','$state','popupService','$window','Contrib','tmhDynamicLocale'];
 		ContribViewController.$inject = ['$scope','$stateParams','Contrib','tmhDynamicLocale'];
 		ContribCreateController.$inject = ['$scope','$state','$stateParams','Contrib','tmhDynamicLocale', 'brCidadesEstados'];
 		ContribEditController.$inject = ['$scope','$state','$stateParams','Contrib','tmhDynamicLocale', 'brCidadesEstados'];
@@ -28,28 +28,46 @@
 		* and bindable members up top.
 		*/
 
-		function ContribListController($scope,$state,popupService,$window,Contrib, tmhDynamicLocale) {
+		function ContribListController($rootScope,$scope,$state,popupService,$window,Contrib, tmhDynamicLocale) {
 			/*jshint validthis: true */
 			var vm = this;
 
-			var response = Contrib.query();
-
-			$scope.contribs = response;
+			
 
 			$scope.selected = [];
+
+			$scope.limitOptions = [ 15, 30, 50, 100];
   
-			$scope.query = {
+			vm.query = {
+			  sort: 'nome',
 			  order: 'nome',
 			  limit: 30,
 			  page: 1
 			};
-			  
+
+			$scope.query = {
+			  sort: 'nome',
+			  order: 'nome',
+			  limit: 30,
+			  page: 1
+			};
+
+			  var response = Contrib.query(vm.query);
+
+			  $scope.contribs = response;
+
+
 			  function success(desserts) {
-			    $scope.desserts = desserts;
+			    $scope.contribs = desserts;
 			  }
 			  
 			  $scope.getDesserts = function () {
-			    $scope.promise = $scope.contribs.get($scope.query, success).$promise;
+			    // $scope.promise = $scope.contribs.get($scope.query, success).$promise;
+				
+
+			    $scope.contribs = Contrib.query($scope.query);
+			    
+			    
 			  };
 
 

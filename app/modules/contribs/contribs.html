@@ -14,9 +14,9 @@
     <table  md-table  >
         <thead md-head md-order="query.order" md-on-reorder="getDesserts">
             <tr md-row class="even">
-                <td md-column>Numero</td>
-                <td md-column md-order-by="nameToUpper">Nome</td>
-                <td md-column >Email</td>
+                <td md-column md-order-by="numero">Numero</td>
+                <td md-column md-order-by="nome" md-asc >Nome</td>
+                <td md-column md-order-by="email">Email</td>
                 <td md-column >Telefone</td>
                 <td md-column ></td>
             </tr>
@@ -36,8 +36,9 @@
         </tbody>
     </table>
   </md-table-container>
-  <!-- <md-table-pagination md-limit="query.limit" md-limit-options="[5, 10, 15]" md-page="query.page" md-total="{{contribs.length}}" md-on-paginate="getDesserts" md-page-select></md-table-pagination> -->
-  <md-table-pagination md-limit="30" md-page="1" md-total="{{contribs.length}}"></md-table-pagination>
+  <md-table-pagination md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}" md-offset="query.offset"  md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="1000" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  
+  <!-- <md-table-pagination md-limit="30" md-page="1" md-total="{{contribs.length}}"></md-table-pagination> -->
 </div>
 
 </md-content>

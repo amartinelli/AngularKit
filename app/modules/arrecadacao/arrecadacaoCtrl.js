@@ -32,7 +32,25 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			var response = Payment.query();
+			$scope.selected = [];
+
+			$scope.limitOptions = [ 15, 30, 50, 100];
+  
+			vm.queryPay = {
+			  sort: 'nome',
+			  order: 'nome',
+			  limit: 30,
+			  page: 1
+			};
+
+			$scope.queryPay = {
+			  sort: 'nome',
+			  order: 'nome',
+			  limit: 30,
+			  page: 1
+			};
+
+			var response = Payment.query($scope.queryPay);
 
 			$scope.payments = response;
 			
@@ -40,7 +58,16 @@
 				window.open("#!/arrecadacao/"+id.id+"/recibo", "Impressao Recibo","width=400,height=600,location=no,menubar=no,status=no,toolbar=no")
 			}
 
-			
+			function success(desserts) {
+			    $scope.contribs = desserts;
+			  }
+			  
+			  $scope.getPayments = function () {
+			    
+			    $scope.payments = Payment.query($scope.queryPay);
+			    
+			    
+			  };
 
 		    $scope.deletePayment=function(payment){
 	        if(popupService.showPopup('Deseja realmente deletar ?')){

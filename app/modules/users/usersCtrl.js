@@ -31,9 +31,36 @@
 			/*jshint validthis: true */
 			var vm = this;
 
-			var response = Movie.query();
+			$scope.selected = [];
+
+			$scope.limitOptions = [ 15, 30, 50, 100];
+  
+			vm.queryUser = {
+			  sort: 'name',
+			  order: 'name',
+			  limit: 30,
+			  page: 1
+			};
+
+			$scope.queryUser = {
+			  sort: 'name',
+			  order: 'name',
+			  limit: 30,
+			  page: 1
+			};
+
+			var response = Movie.query($scope.queryUser);
 
 			$scope.users = response;
+
+			$scope.getUserApi = function () {
+			    // $scope.promise = $scope.contribs.get($scope.query, success).$promise;
+				
+
+			    $scope.users = Movie.query($scope.queryUser);
+			    
+			    
+			  };
 			
 			$scope.deleteUser = function(user) { // Delete a movie. Issues a DELETE to /api/movies/:id
 		    if (popupService.showPopup('Tem certeza que deseja deletar o usuário '+user.name+' ?')) {

@@ -38,12 +38,33 @@
       <md-input-container>
         <label>Contribuinte</label>
         <!-- <input ng-model="payments.nome_user_contrib" placeholder="Contribuinte"> -->
-        <md-select ng-model="payments.contribuinte">
+
+        <!-- <md-select ng-model="payments.contribuinte">
             
             <md-option ng-repeat="contribuinte in contribs" ng-value="contribuinte">
               {{contribuinte.nome}}
             </md-option>
-          </md-select>
+          </md-select> -->
+
+          <md-autocomplete
+          
+          
+          md-selected-item="vm.selectedItem"
+          md-search-text="vm.searchText"
+          md-no-cache="true"
+          md-items="item in vm.querySearch(vm.searchText)"
+          md-item-text="vm.textoAgrupado(item)"
+          md-min-length="0"
+          placeholder="Contribuinte">
+        <md-item-template>
+          <span md-highlight-text="vm.searchText" md-highlight-flags="^i">{{item.numero}} - {{item.nome }}</span>
+        </md-item-template>
+        <md-not-found>
+          Nada encontrado para "{{vm.searchText}}"
+          <!-- <a ng-click="ctrl.newState(ctrl.searchText)">Create a new one!</a> -->
+        </md-not-found>
+      </md-autocomplete>
+
       </md-input-container>
     </div>
 

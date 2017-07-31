@@ -319,7 +319,8 @@
 			var vm = this;
 
 			
-			var response = Contrib.query();
+
+			var response = Contrib.query(vm.query);
 
 			$scope.contribs = response;
 			
@@ -338,6 +339,38 @@
 		            $state.go('home.arrecadacao');
 		        });
 		    }
+
+		    vm.textoAgrupado = function (item)
+		    {
+		    	return item.numero+" - "+item.nome
+		    }
+
+		    vm.querySearch = function(text) {
+		    	var params = {
+				  q: text,
+				  paths: ['nome', 'numero'],
+				  sort: 'nome',
+				  order: 'nome',
+				  limit: 30,
+				  page: 1
+				};
+
+		    	
+		    	// return $scope.contribs;
+		    	return Contrib.query(params)
+		      // var results = query ? Contrib.query({q: query}) : self.states,
+		      //     deferred;
+		      // if (self.simulateQuery) {
+		      //   deferred = $q.defer();
+		      //   $timeout(function () { deferred.resolve( results ); }, Math.random() * 1000, false);
+		      //   return deferred.promise;
+		      // } else {
+		      //   return results;
+		      // }
+		    }
+
+
+
 
 		}
 

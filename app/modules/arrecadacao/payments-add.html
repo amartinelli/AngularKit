@@ -46,12 +46,10 @@
             </md-option>
           </md-select> -->
 
-          <md-autocomplete
-          
-          
-          md-selected-item="vm.selectedItem"
+      <md-autocomplete
+          md-selected-item="payments.contribuinte"
           md-search-text="vm.searchText"
-          md-no-cache="true"
+          md-no-cache="false"
           md-items="item in vm.querySearch(vm.searchText)"
           md-item-text="vm.textoAgrupado(item)"
           md-min-length="0"

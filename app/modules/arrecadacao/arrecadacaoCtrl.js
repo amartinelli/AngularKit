@@ -348,13 +348,12 @@
 		    vm.querySearch = function(text) {
 		    	var params = {
 				  q: text,
-				  paths: ['nome', 'numero'],
-				  sort: 'nome',
-				  order: 'nome',
+				  sort: 'numero',
 				  limit: 30,
 				  page: 1
 				};
 
+				console.log('teste')
 		    	
 		    	// return $scope.contribs;
 		    	return Contrib.query(params)

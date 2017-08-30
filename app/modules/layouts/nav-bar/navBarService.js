@@ -38,6 +38,10 @@
 						link: 'arrecadacao',
 							name: 'Arrecadação'
 					},
+					{
+						link: 'report1',
+							name: 'Relatório'
+					},
 			    
 			    
 		  	];

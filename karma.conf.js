@@ -52,6 +52,11 @@ module.exports = function (config) {
 			'app/modules/arrecadacao/arrecadacaoRoute.js',
 			'app/modules/arrecadacao/arrecadacaoService.js',
 			'app/modules/arrecadacao/arrecadacao-test.js',
+			'app/modules/report1/report1Module.js',
+			'app/modules/report1/report1oCtrl.js',
+			'app/modules/report1/report1Route.js',
+			'app/modules/report1/report1Service.js',
+			'app/modules/report1/report1-test.js',
 		],
 
 		// Test results reporter to use

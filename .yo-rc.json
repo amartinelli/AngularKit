@@ -17,6 +17,9 @@
       },
       {
         "name": "arrecadacao"
+      },
+      {
+        "name": "report1"
       }
     ],
     "menu": [
@@ -35,6 +38,10 @@
       {
         "link": "arrecadacao",
         "title": "Arrecadacao"
+      },
+      {
+        "link": "report1",
+        "title": "Report1"
       }
     ]
   }

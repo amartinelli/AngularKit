@@ -1,0 +1,61 @@
+<md-content layout="column" class="background">
+
+<!-- <div>
+    <md-button ui-sref="home.newContrib" class="md-raised md-primary">Novo Contribuinte</md-button>
+</div>
+ -->
+<div>
+    <md-toolbar class="md-table-toolbar md-default">
+      <div class="md-toolbar-tools">
+        <span>Contribuintes</span>
+      </div>
+    </md-toolbar>
+  <md-table-container  md-progress="promise">
+    <table  md-table  >
+        <thead md-head md-order="query.order" md-on-reorder="getDesserts">
+            <tr md-row class="even">
+                <td md-column md-order-by="numero">Numero</td>
+                <td md-column md-order-by="nome" md-asc >Nome</td>
+                <td md-column md-order-by="janeiro">Janeiro</td>
+                <td md-column md-order-by="fevereiro">Fevereiro</td>
+                <td md-column md-order-by="marco">Março</td>
+                <td md-column md-order-by="abril">Abril</td>
+                <td md-column md-order-by="maio">Maio</td>
+                <td md-column md-order-by="junho">Junho</td>
+                <td md-column md-order-by="julho">Julho</td>
+                <td md-column md-order-by="agosto">Agosto</td>
+                <td md-column md-order-by="setembro">Setembro</td>
+                <td md-column md-order-by="outubro">Outubro</td>
+                <td md-column md-order-by="novembro">Novembro</td>
+                <td md-column md-order-by="dezembro">Dezembro</td>
+                
+            </tr>
+        </thead>
+
+        <tbody md-body>
+            <tr md-row ng-repeat="contrib in vm.contribs | orderBy: 'nome' | limitTo: myLimit: (myPage - 1) * myLimit"  ng-class-odd="'odd'" ng-class-even="'even'">
+                <td md-cell>{{contrib.numero}}</td>
+                <td md-cell>{{contrib.nome}}</td>
+                <td md-cell>{{ contrib.jan }}</td>
+                <td md-cell>{{ contrib.fev }}</td>
+                <td md-cell>{{ contrib.mar }}</td>
+                <td md-cell>{{ contrib.abr }}</td>
+                <td md-cell>{{ contrib.mai }}</td>
+                <td md-cell>{{ contrib.jun }}</td>
+                <td md-cell>{{ contrib.jul }}</td>
+                <td md-cell>{{ contrib.ago }}</td>
+                <td md-cell>{{ contrib.set }}</td>
+                <td md-cell>{{ contrib.out }}</td>
+                <td md-cell>{{ contrib.nov }}</td>
+                <td md-cell>{{ contrib.dez }}</td>
+            </tr>
+        </tbody>
+    </table>
+  </md-table-container>
+  <md-table-pagination md-label="{page: 'Página:', rowsPerPage: 'Filas por página:', of: 'de'}" md-offset="query.offset"  md-limit="query.limit" md-limit-options="limitOptions" md-page="query.page" md-total="1000" md-on-paginate="getDesserts" md-page-select></md-table-pagination>
+  
+  <!-- <md-table-pagination md-limit="30" md-page="1" md-total="{{contribs.length}}"></md-table-pagination> -->
+</div>
+
+</md-content>
+

@@ -31,6 +31,7 @@
 		'auth',
 		'users',
 		'contribs',
+		'report1',
 		'arrecadacao',
 		'br.cidades.estados'
 	]);

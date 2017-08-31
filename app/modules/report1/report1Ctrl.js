@@ -32,6 +32,7 @@
 			vm.query = {
 			  sort: 'nome',
 			  order: 'nome',
+			  q: 'edson facholi',
 			  limit: 30,
 			  page: 1
 			};
@@ -39,6 +40,49 @@
 			  var response = Report1Service.query(vm.query);
 
 			  vm.contribs = response;
+
+			  response.$promise.then(function(greeting) {
+					  // console.log('Success: ' + greeting);
+					  var pay = new Array;
+						for (var key in greeting) {
+						       if (greeting.hasOwnProperty(key)) {
+						       		if (greeting[key].id)
+						       		{
+						              console.log(greeting[key].id);
+						       		
+						       			var qq = greeting[key].numero;
+
+							            var queryPay = {
+										  
+										  q: qq,
+										  limit: 30,
+										  page: 1
+										};
+
+										pay[key] = ReportPayment.query(queryPay);
+
+										pay[key].$promise.then(function(greeting2) {
+										  // console.log('Success: ' + greeting);
+											for (var key2 in greeting2) {
+											       if (greeting2.hasOwnProperty(key2)) {
+											       		
+											       		console.log('teste')
+											             console.log(greeting2[key2]);
+											       }
+											} 
+
+										}, function(reason2) {
+										  console.log('Failed: ' + reason2);
+										});
+									}
+
+
+						       }
+						} 
+
+					}, function(reason) {
+					  console.log('Failed: ' + reason);
+					});
 
 
 			  function success(desserts) {
@@ -55,18 +99,21 @@
 				};
 
 			    vm.contribs = Report1Service.query(query);
-			    
-			    
+
+			    vm.contribs.$promise.then(function(greeting) {
+					  // console.log('Success: ' + greeting);
+						for (var key in greeting) {
+						       if (greeting.hasOwnProperty(key)) {
+						       		
+						             console.log(greeting[key]);
+						       }
+						} 
+
+					}, function(reason) {
+					  console.log('Failed: ' + reason);
+					});
+
 			  };
-
-			  vm.queryPay = {
-			  sort: 'nome',
-			  order: 'nome',
-			  limit: 30,
-			  page: 1
-			};
-
-			vm.payments = ReportPayment.query(vm.queryPay);
 
 			vm.getPayments = function (keyword) {
 			    
@@ -88,7 +135,7 @@
 			vm.sumUnic = function(userid, name , sumName, obj){
 			    var returnArr = [];
 
-			    console.log(obj)
+			    // console.log(obj)
 			    
 			    for(var x = 0; x<obj.length; x++){
 			        if((function(source){

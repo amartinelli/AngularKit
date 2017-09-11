@@ -37,6 +37,8 @@
 			  page: 1
 			};
 
+				vm.meses = [];
+
 			  var response = Report1Service.query(vm.query);
 
 			  vm.contribs = response;
@@ -49,6 +51,8 @@
 						       		if (greeting[key].id)
 						       		{
 						              console.log(greeting[key].id);
+
+						              vm.meses[greeting[key].id] = [];
 						       		
 						       			var qq = greeting[key].numero;
 
@@ -63,11 +67,62 @@
 
 										pay[key].$promise.then(function(greeting2) {
 										  // console.log('Success: ' + greeting);
+										    var idcontrib;
 											for (var key2 in greeting2) {
 											       if (greeting2.hasOwnProperty(key2)) {
 											       		
-											       		console.log('teste')
-											             console.log(greeting2[key2]);
+											       		var dataciclo = new Date(greeting2[key2].data);
+											       	   
+											           console.log(greeting2[key2]);
+
+											           if (greeting2[key2].contribuinte) {
+											           		idcontrib = greeting2[key2].contribuinte.id;	
+											        
+											           	}
+
+											             switch (dataciclo.getMonth()) {
+														   case 0:
+														     vm.meses[idcontrib].jan = greeting2[key2].valor ;
+														     break;
+														   case 1:
+														     vm.meses[idcontrib].fev = greeting2[key2].valor ;
+														     break;
+														   case 2:
+														     vm.meses[idcontrib].mar = greeting2[key2].valor ;
+														     break;
+														   case 3:
+														     vm.meses[idcontrib].abr = greeting2[key2].valor ;
+														     break;
+														   case 4:
+														     vm.meses[idcontrib].mai = greeting2[key2].valor ;
+														     break;
+														   case 5:
+														     vm.meses[idcontrib].jun = greeting2[key2].valor ;
+														     break;
+														   case  6:
+														     vm.meses[idcontrib].jul = greeting2[key2].valor ;
+														     break;
+														   case  7:
+														     vm.meses[idcontrib].ago = greeting2[key2].valor ;
+														     break;
+														   case  8:
+														     vm.meses[idcontrib].set = greeting2[key2].valor ;
+														     break;
+														   case  9:
+														     vm.meses[idcontrib].out = greeting2[key2].valor ;
+														     break;
+														   case  10:
+														     vm.meses[idcontrib].nov = greeting2[key2].valor ;
+														     break;
+														   case  11:
+														     vm.meses[idcontrib].dez = greeting2[key2].valor ;
+														     break;	
+
+														     console.log('mes '+dataciclo.getMonth()+' valor ')
+														     console.log(vm.meses[idcontrib])
+														 }
+
+													
 											       }
 											} 
 

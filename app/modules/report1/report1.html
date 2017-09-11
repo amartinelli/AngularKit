@@ -36,18 +36,18 @@
             <tr md-row ng-repeat="contrib in vm.contribs | orderBy: 'nome' | limitTo: myLimit: (myPage - 1) * myLimit"  ng-class-odd="'odd'" ng-class-even="'even'">
                 <td md-cell>{{contrib.numero}}</td>
                 <td md-cell>{{contrib.nome}}</td>
-                <td md-cell>{{ contrib.jan }}</td>
-                <td md-cell>{{ contrib.fev }}</td>
-                <td md-cell>{{ contrib.mar }}</td>
-                <td md-cell>{{ contrib.abr }}</td>
-                <td md-cell>{{ contrib.mai }}</td>
-                <td md-cell>{{ contrib.jun }}</td>
-                <td md-cell>{{ contrib.jul }}</td>
-                <td md-cell>{{ contrib.ago }}</td>
-                <td md-cell>{{ contrib.set }}</td>
-                <td md-cell>{{ contrib.out }}</td>
-                <td md-cell>{{ contrib.nov }}</td>
-                <td md-cell>{{ contrib.dez }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].jan }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].fev }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].mar }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].abr }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].mai }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].jun }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].jul }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].ago }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].set }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].out }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].nov }}</td>
+                <td md-cell>{{ vm.meses[contrib.id].dez }}</td>
             </tr>
         </tbody>
     </table>

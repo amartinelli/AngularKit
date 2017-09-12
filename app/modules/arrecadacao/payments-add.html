@@ -52,6 +52,7 @@
           md-no-cache="false"
           md-items="item in vm.querySearch(vm.searchText)"
           md-item-text="vm.textoAgrupado(item)"
+          md-selected-item-change="vm.selectedItemChange(item)"
           md-min-length="0"
           placeholder="Contribuinte">
         <md-item-template>

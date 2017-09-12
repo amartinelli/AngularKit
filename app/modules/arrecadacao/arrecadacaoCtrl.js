@@ -335,9 +335,19 @@
 
 
 		    $scope.addPayment=function(){
+
+		    	console.log($scope.payments)
+		    	
 		        $scope.payments.$save(function(){
 		            $state.go('home.arrecadacao');
 		        });
+		    }
+
+		    vm.selectedItemChange = function (item){
+		    	$scope.payments.contribnumero = item.numero;
+		    	$scope.payments.contribnome = item.nome;
+
+		    	console.log(item.numero);
 		    }
 
 		    vm.textoAgrupado = function (item)
@@ -353,7 +363,7 @@
 				  page: 1
 				};
 
-				console.log('teste')
+				// console.log('teste')
 		    	
 		    	// return $scope.contribs;
 		    	return Contrib.query(params)
